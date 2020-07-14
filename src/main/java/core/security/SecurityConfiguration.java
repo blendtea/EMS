@@ -14,3 +14,8 @@ public class SecurityConfiguration implements WebMvcConfigurer {
     }
 
 }
+
+/*
+				Enable bCrypt Service
+		This is one way encryption not for recovery
+*/
