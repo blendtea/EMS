@@ -22,15 +22,6 @@
                 <h2>サービス利用者登録フォーム</h2>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                               class="validation-message"></label>
-                        <input type="text" th:field="*{name}" placeholder="名"
-                               class="form-control"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-sm-9">
                         <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
                                class="validation-message"></label>
                         <input type="text" th:field="*{lastName}"
@@ -39,15 +30,25 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9">
+                        <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{name}" placeholder="名"
+                               class="form-control"/>
+                    </div>
+                </div>
+                <!--
+                <div class="form-group">
+                    <div class="col-sm-9">
                         <input type="text" th:field="*{email}" placeholder="メールアドレス(任意)"
                                class="form-control"/> <label
                             th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
                             class="validation-message"></label>
                     </div>
                 </div>
+                																					-->
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{userName}" placeholder="User ID"
+                        <input type="text" th:field="*{userName}" placeholder="社員ID : NV000"
                                class="form-control"/> <label
                             th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
                             class="validation-message"></label>
@@ -56,7 +57,7 @@
                 <div class="form-group">
                     <div class="col-sm-9">
                         <input type="password" th:field="*{password}"
-                               placeholder="Password" class="form-control"/> <label
+                               placeholder="パスワード" class="form-control"/> <label
                             th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
                             class="validation-message"></label>
                     </div>

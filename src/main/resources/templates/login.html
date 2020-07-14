@@ -21,13 +21,13 @@
         <h3 class="form-signin-heading" th:text="ようこそ！"></h3>
         <br/>
 
-        <input type="text" id="user_name" name="user_name" placeholder="User ID"
+        <input type="text" id="user_name" name="user_name" placeholder="社員ID : NV000"
                class="form-control"/> <br/>
-        <input type="password" th:placeholder="Password"
+        <input type="password" th:placeholder="パスワード"
                id="password" name="password" class="form-control"/> <br/>
 
         <div align="center" th:if="${param.error}">
-            <p style="font-size: 20; color: #FF1C19;">ユーザーIDかパスワードが不正です。</p>
+            <p style="font-size: 20; color: #FF1C19;">社員IDまたはパスワードが不正です</p>
         </div>
         <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
                 th:text="ログイン"></button>

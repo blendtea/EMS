@@ -43,8 +43,8 @@ public class LoginController {
         User userExists = userService.findUserByUserName(user.getUserName());
         if (userExists != null) {
             bindingResult
-                    .rejectValue("userName", "error.user",
-                            "このUserIDは既に使用されています。");
+                    .rejectValue("ID", "error.user",
+                            "入力された社員IDは既に登録済みです");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
@@ -63,7 +63,8 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
+//      modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
+        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName());
         modelAndView.addObject("adminMessage","このページは利用者と管理者のみが閲覧できます");
         modelAndView.setViewName("admin/home");
         return modelAndView;

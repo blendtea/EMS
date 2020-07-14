@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
@@ -35,13 +34,13 @@ public class User {
     @Column(name = "user_id")
     private Integer id;
     @Column(name = "user_name")
-    @Length(min = 5, message = "* User IDは最低5文字以上入力してください")
-    @NotEmpty(message = "* User IDを記入してください")
+    @Length(min = 5, message = "* 社員IDは最低5文字以上入力してください")
+    @NotEmpty(message = "* 社員IDを記入してください")
     private String userName;
-    @Column(name = "email")
-    @Email(message = "* メールアドレスが不正です")
+//    @Column(name = "email")
+//    @Email(message = "* メールアドレスが不正です")
 //    @NotEmpty(message = "* メールアドレスを記入してください")
-    private String email;
+//    private String email;
     @Column(name = "password")
     @Length(min = 5, message = "* パスワードは最低５文字以上入力してください")
     @NotEmpty(message = "* パスワードを記入してください")
@@ -57,5 +56,4 @@ public class User {
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
 }

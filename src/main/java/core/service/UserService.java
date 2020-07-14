@@ -28,9 +28,9 @@ public class UserService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
+//    public User findUserByEmail(String email) {
+//        return userRepository.findByEmail(email);
+//    }
 
     public User findUserByUserName(String userName) {
         return userRepository.findByUserName(userName);
