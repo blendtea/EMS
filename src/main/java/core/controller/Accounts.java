@@ -15,7 +15,7 @@ import core.model.User;
 import core.service.UserService;
 
 @Controller
-public class LoginController {
+public class Accounts {
 
     @Autowired
     private UserService userService;
@@ -26,7 +26,6 @@ public class LoginController {
         modelAndView.setViewName("login");
         return modelAndView;
     }
-
 
     @GetMapping(value="/registration")
     public ModelAndView registration(){
@@ -43,8 +42,8 @@ public class LoginController {
         User userExists = userService.findUserByUserName(user.getUserName());
         if (userExists != null) {
             bindingResult
-                    .rejectValue("ID", "error.user",
-                            "入力された社員IDは既に登録済みです");
+                    .rejectValue("userName", "error.user",
+                            "*既に社員IDは登録されています");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
@@ -65,10 +64,8 @@ public class LoginController {
         User user = userService.findUserByUserName(auth.getName());
 //      modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName());
-        modelAndView.addObject("adminMessage","このページは利用者と管理者のみが閲覧できます");
+        modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
-
-
 }
