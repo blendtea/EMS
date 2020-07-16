@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Jul 15 11:37:59 GMT+09:00 2020</td>
+<td>Started on:</td><td>Thu Jul 16 10:12:53 GMT+09:00 2020</td>
 </tr>
-<tr><td>Total time:</td><td>8 seconds (8412 ms)</td>
+<tr><td>Total time:</td><td>47 seconds (47876 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -178,7 +178,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826)
 	... 92 more
-Caused by: java.net.ConnectException: Connection refused: connect
+Caused by: java.net.ConnectException: Connection timed out: connect
 	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
 	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
 	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
@@ -189,8 +189,8 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
 	... 95 more
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace533944978", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace533944978'><pre>java.lang.IllegalStateException: Failed to load ApplicationContext
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1155167327", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1155167327'><pre>java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
 	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
@@ -320,7 +320,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826)
 	... 92 more
-Caused by: java.net.ConnectException: Connection refused: connect
+Caused by: java.net.ConnectException: Connection timed out: connect
 	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
 	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
 	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
@@ -332,7 +332,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
 	... 95 more
 </pre></div></td>
-<td>7</td>
+<td>47</td>
 <td>contextLoads(core.RunServiceTest)</td></tr>
 </table><p>
 </body>
