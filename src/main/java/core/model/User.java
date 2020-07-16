@@ -34,25 +34,25 @@ public class User {
     @Column(name = "user_id")
     private Integer id;
     @Column(name = "user_name")
-    @Length(min = 5, message = "* 社員IDは最低5文字以上入力してください")
-    @NotEmpty(message = "* 社員IDを記入してください")
+    @Length(min = 5, max =5, message = "*社員IDが正しくありません。例)NV000")
+    @NotEmpty(message = "*社員IDを入力してください")
     private String userName;
-//    @Column(name = "email")
-//    @Email(message = "* メールアドレスが不正です")
-//    @NotEmpty(message = "* メールアドレスを記入してください")
-//    private String email;
+//  @Column(name = "email")
+//  @Email(message = "* メールアドレスが不正です")
+//  @NotEmpty(message = "* メールアドレスを記入してください")
+//  private String email;
     @Column(name = "password")
-    @Length(min = 5, message = "* パスワードは最低５文字以上入力してください")
-    @NotEmpty(message = "* パスワードを記入してください")
+    @Length(min = 5, message = "*パスワードは最低5文字以上入力してください")
+    @NotEmpty(message = "*パスワードを入力してください")
     private String password;
     @Column(name = "name")
-    @NotEmpty(message = "* 名前を入力してください")
+    @NotEmpty(message = "*名を入力してください")
     private String name;
     @Column(name = "last_name")
-    @NotEmpty(message = "* 苗字を入力してください")
+    @NotEmpty(message = "*姓を入力してください")
     private String lastName;
-    @Column(name = "active")
-    private Boolean active;
+//  @Column(name = "active")
+//  private Boolean active;
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
