@@ -1,9 +1,10 @@
 @charset "UTF-8";
+
 h1 {
 	text-align: center;
 }
 
-.a {
+.table {
 	float: left;
 	width: 350px;
 	position: relative;
@@ -14,7 +15,6 @@ h1 {
 .b {
 	position: relative;
 	left: 20%;
-
 	background: #00ff00;
 }
 
@@ -24,30 +24,28 @@ h1 {
 }
 
 .e {
-
 	height: 200px;
 }
 
-.f {
+.textarea {
 	position: relative;
 	left: 19.96%;
-
 }
 
-.g {
+.input {
 	width: 97%;
 }
 
-.h {
-	width:60px;
-	height:30px;
+.button1 {
+	width: 60px;
+	height: 30px;
 	position: relative;
 	left: 40%;
 }
 
-.i {
-	width:60px;
-	height:30px;
+.button2 {
+	width: 60px;
+	height: 30px;
 	position: relative;
 	left: 60%;
 }
@@ -67,14 +65,12 @@ h1 {
 	float: right;
 	position: relative;
 	right: 20%;
-
 }
 
-.o{
-	width:60px;
-	height:30px;
+.o {
+	width: 60px;
+	height: 30px;
 	position: relative;
 	left: 45%;
 	top: 19px;
 }
-
