@@ -63,7 +63,7 @@ public class Accounts {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
 //      modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName());
+        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getName());
         modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         modelAndView.setViewName("admin/home");
         return modelAndView;
