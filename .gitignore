@@ -1,0 +1,8 @@
+.git
+.settings
+.sts4-cache
+bin/
+target/
+.classpath
+.project
+src/test/
