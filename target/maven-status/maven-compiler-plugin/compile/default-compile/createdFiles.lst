@@ -1,0 +1,12 @@
+core\model\Role$RoleBuilder.class
+core\security\WebSecurityConfiguration.class
+core\repository\RoleRepository.class
+core\model\User.class
+core\security\SecurityConfiguration.class
+core\service\UserService.class
+core\RunService.class
+core\service\MyUserDetailsService.class
+core\controller\LoginController.class
+core\model\User$UserBuilder.class
+core\repository\UserRepository.class
+core\model\Role.class
