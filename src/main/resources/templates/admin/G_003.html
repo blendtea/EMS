@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<link rel="stylesheet" href="../../static/css/G_003.css">
+<link rel="stylesheet" type="text/css" href="../../static/css/G_003.css" th:href="@{/static/css/G_003.css}"/>
 <meta charset="UTF-8">
 <title>プロフィール変更画面</title>
 </head>
@@ -87,8 +89,13 @@
 	</div>
 
 
-	<button class="button1">戻る</button>
+
+	<form th:action="@{/admin/home}" method="get"><button class="button1"type="Submit">戻る
+	</button>
+	</form>
+
 	<button class="button2">決定</button>
+
 
 
 </body>
