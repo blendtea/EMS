@@ -70,19 +70,12 @@ public class Accounts {
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
-<<<<<<< HEAD
-    @GetMapping(value="/admin/G_003")
-    public ModelAndView G_003() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("admin/G_003");
-        return modelAndView;
-=======
     //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
     @GetMapping(value="/admin/G_003")
     public ModelAndView G_003() {
     	ModelAndView modelAndView = new ModelAndView();
     	modelAndView.setViewName("admin/G_003");
     	return modelAndView;
->>>>>>> 242_Tanida
+
     }
 }
