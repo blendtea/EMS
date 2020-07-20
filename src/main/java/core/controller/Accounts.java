@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,9 +58,8 @@ public class Accounts {
         return modelAndView;
     }
 
-
     @GetMapping(value="/admin/home")
-    public ModelAndView home(){
+    public ModelAndView home(Model model){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
@@ -67,19 +67,8 @@ public class Accounts {
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName());
         modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         modelAndView.setViewName("admin/home");
-        modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         return modelAndView;
     }
-    /* create userlist for datatable at /admin/home
-    @Autowired
-    UserRepository userRepository;
-    @PostMapping(value = "userlist")
-    @ResponseBody
-    public List<User> home2(Model model) {
-        List<User> list=userRepository.findAll();
-        return list;
-    }
-    */
 }
 
 
