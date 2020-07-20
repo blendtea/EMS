@@ -66,7 +66,7 @@ public class Accounts {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getName());
-        modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
+//      modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
@@ -77,4 +77,11 @@ public class Accounts {
     	modelAndView.setViewName("admin/G_003");
     	return modelAndView;
     }
+    //プロフィール画面登録のページマッピング
+    @PostMapping(value = "/profile")
+    public ModelAndView view() {
+    	ModelAndView modelAndView = new ModelAndView();
+		return modelAndView;
+		}
+    
 }

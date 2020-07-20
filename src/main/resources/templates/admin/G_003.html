@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" type="text/css" th:href="@{/css/G_003.css}"/>
 <meta charset="UTF-8">
-<title>プロフィール変更画面</title>
+<title>Employees.app</title>
 </head>
 
 <body>
@@ -89,7 +89,11 @@
 	</div>
 
 
-	<button class="button1">戻る</button>
+	
+	<form th:action="@{/admin/home}" method="get"><button class="button1"type="Submit">戻る
+	</button>
+	</form>
+	
 	<button class="button2">決定</button>
 
 
