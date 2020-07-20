@@ -19,14 +19,14 @@ public class Accounts {
 
     @Autowired
     private UserService userService;
-
+    //ログイン画面へ遷移する
     @GetMapping(value={"/", "/login"})
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
         return modelAndView;
     }
-
+    //登録画面へ遷移する
     @GetMapping(value="/registration")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -35,10 +35,13 @@ public class Accounts {
         modelAndView.setViewName("registration");
         return modelAndView;
     }
-
+    //登録情報を送信する
     @PostMapping(value = "/registration")
+    //@Validによるバリデーションチェックを含める
+    //ModelAndViewクラス(Model)からコントローラが取得した値をView側へ値を渡す
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
+        //UserRepository(リポジトリ=データ格納場所)からModelクラスでuserNameの値を取得する
         User userExists = userService.findUserByUserName(user.getUserName());
         if (userExists != null) {
             bindingResult
@@ -56,22 +59,30 @@ public class Accounts {
         }
         return modelAndView;
     }
-
+    //ログイン認証成功したアカウントのみアクセスできるページマッピング
     @GetMapping(value="/admin/home")
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-//      modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName());
+        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getName());
         modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
+<<<<<<< HEAD
     @GetMapping(value="/admin/G_003")
     public ModelAndView G_003() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("admin/G_003");
         return modelAndView;
+=======
+    //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
+    @GetMapping(value="/admin/G_003")
+    public ModelAndView G_003() {
+    	ModelAndView modelAndView = new ModelAndView();
+    	modelAndView.setViewName("admin/G_003");
+    	return modelAndView;
+>>>>>>> 242_Tanida
     }
 }
