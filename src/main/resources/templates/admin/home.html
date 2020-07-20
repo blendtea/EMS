@@ -15,27 +15,26 @@
 		class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
 		<a class="navbar-brand" href="#">社員名簿</a>
 	</nav>
-<div class="container">
+	<div class="container">
 
-    <form th:action="@{/logout}" method="get">
-        <button class="btn btn-md btn-danger btn-block" name="registration"
-                type="Submit">ログアウト
-        </button>
-    </form>
+		<form th:action="@{/logout}" method="get">
+			<button class="btn btn-md btn-danger btn-block" name="registration"
+				type="Submit">ログアウト</button>
+		</form>
 
-    <div class="panel-group" style="margin-top:40px">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <span th:utext="${userName}"></span>
-            </div>
-            <div class="panel-body">
-                <img th:src="@{/images/*.jpg}" class="img-responsive center-block" width="400" height="400"
-                     alt="img"/>
-            </div>
-            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
-        </div>
-    </div>
-    <div class="row">
+		<div class="panel-group" style="margin-top: 40px">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span th:utext="${userName}"></span>
+				</div>
+				<div class="panel-body">
+					<img th:src="@{/images/*.jpg}" class="img-responsive center-block"
+						width="400" height="400" alt="img" />
+				</div>
+				<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+			</div>
+		</div>
+		<div class="row">
 			<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
 				<ul class="flex-row d-block d-sm-none list-inline">
 					<li class="nav-item2 list-inline-item"><a class="nav-link2"
@@ -52,25 +51,58 @@
 
 				<!-- database table -->
 				<div class="table-responsive">
-					<table class="table table-striped">
-						<thead>
+					<table id="table1"
+						class="table table-bordered table-hover table-lg">
+						<thead class="thead-light">
 							<tr>
-								<th>社員番号</th>
-								<th>名前</th>
-								<th>所属</th>
+								<th>ユーザ名</th>
+								<th>メールアドレス</th>
 							</tr>
 						</thead>
-						<tr th:each="user : ${userlist}" th:object="${user}">
-							<td th:text="*{userName}"></td>
-							<td th:text="*{lastName}"></td>
-							<td th:text="*{lastName}"></td>
-						</tr>
+						<tbody>
 						</tbody>
 					</table>
+	<!-- cannot use it
+	<script th:inline="javascript">
+    /*<![CDATA[*/
+        var modalesectiondata = null;
+        $(function(){
+            // datatableの設定を変更
+            var modalesectiontable = $("#table1").DataTable({
+                "bPaginate": true,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bSort": false,
+                "bInfo": false,
+                "bAutoWidth": false,
+                "language": {
+                    "url": /*[[@{/DataTables-1.10.16/Japanese.json}]]*/ 'Japanese.json'
+                },
+                "ajax": { "url": /*[[@{/userlist}]]*/ '/userlist',
+                	"type": "POST",
+                    "dataType": "json",
+                    "contentType": "application/json",
+                    "data": function (d) {
+                        return JSON.stringify(d);
+                    }
+                },
+                "columns": [
+                    { data: "user_id" },
+                    { data: "last_name" },
+                ],
+                "columnDefs": [
+                    { targets: 0, width: 60 },
+                    { targets: 1, width: 180 },
+                    {targets:'_all',className : 'dt-head-center'},
+                ]
+            });
+        })
+    /*]]>*/
+    </script>-->
 				</div>
 			</main>
 		</div>
 
-</div>
+	</div>
 </body>
 </html>

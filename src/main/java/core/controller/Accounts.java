@@ -57,6 +57,7 @@ public class Accounts {
         return modelAndView;
     }
 
+
     @GetMapping(value="/admin/home")
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
@@ -66,6 +67,19 @@ public class Accounts {
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName());
         modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         modelAndView.setViewName("admin/home");
+        modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         return modelAndView;
     }
+    /* create userlist for datatable at /admin/home
+    @Autowired
+    UserRepository userRepository;
+    @PostMapping(value = "userlist")
+    @ResponseBody
+    public List<User> home2(Model model) {
+        List<User> list=userRepository.findAll();
+        return list;
+    }
+    */
 }
+
+
