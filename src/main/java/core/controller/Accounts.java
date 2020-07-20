@@ -68,4 +68,10 @@ public class Accounts {
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
+    @GetMapping(value="/admin/G_003")
+    public ModelAndView G_003() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("admin/G_003");
+        return modelAndView;
+    }
 }
