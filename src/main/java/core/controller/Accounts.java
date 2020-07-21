@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,12 +62,12 @@ public class Accounts {
     }
     //ログイン認証成功したアカウントのみアクセスできるページマッピング
     @GetMapping(value="/admin/home")
-    public ModelAndView home(){
+    public ModelAndView home(Model model){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getName());
-//      modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
+        modelAndView.addObject("info","デバッグ中・・・");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
@@ -77,11 +78,10 @@ public class Accounts {
     	modelAndView.setViewName("admin/G_003");
     	return modelAndView;
     }
-    //プロフィール画面登録のページマッピング
-    @PostMapping(value = "/profile")
-    public ModelAndView view() {
+    @GetMapping(value="/admin/Users")
+    public ModelAndView Users() {
     	ModelAndView modelAndView = new ModelAndView();
-		return modelAndView;
-		}
-    
+    	modelAndView.setViewName("admin/Users");
+    	return modelAndView;
+    }    
 }
