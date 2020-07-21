@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<link rel="stylesheet" type="text/css" href="../../static/css/G_003.css" th:href="@{/static/css/G_003.css}"/>
+<link rel="stylesheet" type="text/css" href="../../static/css/G_003.css"
+	th:href="@{/static/css/G_003.css}" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <title>プロフィール変更画面</title>
 </head>
@@ -23,53 +28,54 @@
 		</div>
 
 
-		<div>
-			<table class="table" border="1" style="border-collapse: collapse">
+		<div class="col-xs-2">
+			<table   class="table" border="1" style="border-collapse: collapse" >
 
 				<tr>
-					<td>氏名</td>
-					<td><input class="input" type="text" readonly></td>
+					<td class="font-size" >氏名</td>
+					<td class="font-size"><input class="input" type="text" readonly></td>
 				</tr>
 
 				<tr>
-					<td>社員番号</td>
-					<td><input class="input" type="text" readonly></td>
+					<td class="font-size">社員番号</td>
+					<td class="font-size"><input class="input" type="text" readonly></td>
 				</tr>
 
 				<tr>
-					<td>性別</td>
-					<td><input class="input" type="text" maxlength="3"></td>
+					<td class="font-size">性別</td>
+					<td class="font-size"><input class="input" type="text" maxlength="3"></td>
 				</tr>
 
 
 				<tr>
-					<td>所属・プロジェクト</td>
-					<td><input class="input" type="text"></td>
+					<td class="font-size">所属・プロジェクト</td>
+					<td class="font-size"><input class="input" type="text"></td>
 				</tr>
 
 				<tr>
-					<td>生年月日</td>
-					<td><input class="input" type="text"></td>
+					<td class="font-size">生年月日</td>
+					<td class="font-size"><input class="input" type="text"></td>
 
 				</tr>
 				<tr>
-					<td>出身校</td>
-					<td><input class="input" type="text"></td>
+					<td class="font-size">出身校</td>
+					<td class="font-size"><input class="input" type="text"></td>
 				</tr>
 
 				<tr>
-					<td>趣味</td>
-					<td><input class="input" type="text"></td>
+					<td class="font-size">趣味</td>
+					<td class="font-size"><input class="input" type="text"></td>
 				</tr>
 
 			</table>
 		</div>
 	</div>
 
+	<div class="free_super">
 	<div class="free">
 		<table class="freespace" border="1" style="border-collapse: collapse">
 			<tr>
-				<td>フリースペース</td>
+				<td class="font-size">フリースペース</td>
 			</tr>
 
 		</table>
@@ -88,10 +94,10 @@
 		</table>
 	</div>
 
+</div>
 
-
-	<form th:action="@{/admin/home}" method="get"><button class="button1"type="Submit">戻る
-	</button>
+	<form th:action="@{/admin/home}" method="get">
+		<button class="button1" type="Submit">戻る</button>
 	</form>
 
 	<button class="button2">決定</button>
