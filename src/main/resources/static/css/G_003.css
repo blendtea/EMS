@@ -61,15 +61,13 @@ h1 {
 	height: 320px;
 }
 
-
-
 .photo {
 	float: right;
 	position: relative;
 	left: -54%;
 }
 
-.button3{
+.button3 {
 	width: 60px;
 	height: 30px;
 	position: relative;
@@ -77,13 +75,12 @@ h1 {
 	top: 104px;
 }
 
-.font-size{
+.font-size {
 	font-size: 100%;
-	}
+}
 
-.free_super{
+.free_super {
 	position: relative;
 	top: 50px;
-	}
-
+}
 }
