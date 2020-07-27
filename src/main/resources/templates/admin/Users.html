@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Employees.app</title>
@@ -48,8 +48,8 @@
 	class="table table-bordered table-hover table-lg">
 		<thead class="thead-light">
 			<tr>
-				<th>userName</th>
-				<th>lastName</th>
+				<th>社員ID</th>
+				<th>氏名</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -75,7 +75,7 @@
                 "ajax": { url: /*[[@{/getuserlist}]]*/ 'getuserlist', dataSrc: '' },
                 "columns": [
                     { data: "userName" },
-                    { data: "lastName" },
+                    { data: "lastName"}
                 ],
                 "columnDefs": [
                     { targets: 0, width: 60 },
