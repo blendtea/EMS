@@ -70,6 +70,18 @@ public class Accounts {
         modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
         modelAndView.setViewName("admin/home");
         return modelAndView;
+
+
+    }
+    //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
+    @GetMapping(value="/admin/G_003")
+    public ModelAndView G_003() {
+    	ModelAndView modelAndView = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByUserName(auth.getName());
+        modelAndView.addObject("userName",user.getUserName());
+    	modelAndView.setViewName("admin/G_003");
+    	return modelAndView;
     }
     //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
     @GetMapping(value="/admin/G_003")

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/G_003.css}"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- new source for datatable -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+  	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<title>プロフィール変更画面</title>
+</head>
+<body>
+	<script th:inline="javascript">
+    /*<![CDATA[*/
+        var modalesectiondata = null;
+        $(function(){
+            // datatableの設定を変更
+            var modalesectiontable = $("#accounts").DataTable({
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bSort": false,
+                "bInfo": false,
+                "bAutoWidth": false,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Japanese.json"
+                },
+                "ajax": { url: /*[[@{/getuserlist}]]*/ 'getuserlist', dataSrc: '' },
+                "columns": [
+                    { data: "userName" },
+                   { data: "lastName" },
+               ],
+            });
+        })
+    /*]]>*/
+    </script>
+
+	<h1>プロフィール変更画面</h1>
+<div class="super">
+<div class="photo">
+	<img src="https://th.bing.com/th/id/OIP.M_n2Zenf0knX1HkwDTCxCwHaHa?pid=Api&rs=1"
+		 alt="サンプル" class="j" width="141.73228346456693"
+		 height="177.16535433070865">
+<button class="button3">編集</button>
+</div>
+<div  id="accounts" class="col-xs-2">
+			<table class="table" border="1" style="border-collapse: collapse">
+			 <tr>
+				<td class="font-size" >氏名</td>
+				<td class="font-size"><input class="input" type="text"  readonly></td>
+			</tr>
+			 <tr>
+				<td class="font-size">社員番号</td>
+				<td class="font-size"><input class="input" type="text" name="userName" th:value="${userName}" readonly></td>
+			</tr>
+			 <tr>
+				<td class="font-size">性別</td>
+				<td class="font-size"><input class="input" type="text" maxlength="3"></td>
+			</tr>
+			 <tr>
+				<td class="font-size">所属・プロジェクト</td>
+				<td class="font-size"><input class="input" type="text"></td>
+			</tr>
+			 <tr>
+				<td class="font-size">生年月日</td>
+				<td class="font-size"><input class="input" type="text"></td>
+			</tr>
+			 <tr>
+				<td class="font-size">出身校</td>
+				<td class="font-size"><input class="input" type="text"></td>
+			</tr>
+			 <tr>
+				<td class="font-size">趣味</td>
+				<td class="font-size"><input class="input" type="text"></td>
+			</tr>
+			</table>
+		</div>
+	</div>
+<div class="free_super">
+	<div class="free">
+		<table class="freespace" border="1" style="border-collapse: collapse">
+			 <tr>
+				<td class="font-size">フリースペース</td>
+			</tr>
+		</table>
+	</div>
+<div class="e">
+	<table class="textarea" border="1" style="border-collapse: collapse">
+		<tr>
+			<td>
+				<textarea name="test2" rows="5" cols="40"style="font-size: 150%;"></textarea>
+			</td>
+		</tr>
+		</table>
+	</div>
+</div>
+	<form th:action="@{/admin/home}" method="get">
+		<button class="button1" type="Submit">戻る</button>
+	</form>
+	<button class="button2">決定</button>
+</body>
+</html>

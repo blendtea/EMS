@@ -1,12 +1,20 @@
 @charset "UTF-8";
 
 h1 {
+<<<<<<< Updated upstream
+=======
+	float: none;
+>>>>>>> Stashed changes
 	text-align: center;
 }
 
 .table {
 	float: left;
+<<<<<<< Updated upstream
 	width: 350px;
+=======
+	top: 2px;
+>>>>>>> Stashed changes
 	position: relative;
 	left: 20%;
 	background: #00ff00;
@@ -19,7 +27,11 @@ h1 {
 }
 
 .free {
+<<<<<<< Updated upstream
 	font-size: 100%;
+=======
+	font-size: 130%;
+>>>>>>> Stashed changes
 	height: 100%;
 }
 
@@ -37,6 +49,11 @@ h1 {
 }
 
 .button1 {
+<<<<<<< Updated upstream
+=======
+	float: none;
+	top: 30px;
+>>>>>>> Stashed changes
 	width: 60px;
 	height: 30px;
 	position: relative;
@@ -44,6 +61,10 @@ h1 {
 }
 
 .button2 {
+<<<<<<< Updated upstream
+=======
+	float: none;
+>>>>>>> Stashed changes
 	width: 60px;
 	height: 30px;
 	position: relative;
@@ -51,9 +72,16 @@ h1 {
 }
 
 .super {
+<<<<<<< Updated upstream
 	width: 100%;
 	overflow: hidden;
 	height: 250px;
+=======
+	position: relative;
+	width: 206%;
+	overflow: hidden;
+	height: 320px;
+>>>>>>> Stashed changes
 }
 
 
@@ -61,7 +89,11 @@ h1 {
 .photo {
 	float: right;
 	position: relative;
+<<<<<<< Updated upstream
 	left: -5%;
+=======
+	left: -54%;
+>>>>>>> Stashed changes
 }
 
 .button3{
@@ -69,5 +101,20 @@ h1 {
 	height: 30px;
 	position: relative;
 	left: -50%;
+<<<<<<< Updated upstream
 	top: 19px;
+=======
+	top: 104px;
+}
+
+.font-size{
+	font-size: 100%;
+	}
+
+.free_super{
+	position: relative;
+	top: 50px;
+	}
+
+>>>>>>> Stashed changes
 }
