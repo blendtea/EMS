@@ -61,16 +61,6 @@ public class Accounts {
         return modelAndView;
     }
     //ログイン認証成功したアカウントのみアクセスできるページマッピング
-    @GetMapping(value="/admin/G_006")
-    public ModelAndView G_006(){
-    	ModelAndView modelAndView = new ModelAndView();
-    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    	User user = userService.findUserByUserName(auth.getName());
-    	 modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
-    	modelAndView.setViewName("admin/G_006");
-    	return modelAndView;
-    }
-    //ホーム画面からプロフィール検索画面へ遷移するためのページマッピング
     @GetMapping(value="/admin/home")
     public ModelAndView home(Model model){
         ModelAndView modelAndView = new ModelAndView();
