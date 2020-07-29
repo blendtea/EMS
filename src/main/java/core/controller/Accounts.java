@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,12 +72,12 @@ public class Accounts {
     }
     //ホーム画面からプロフィール検索画面へ遷移するためのページマッピング
     @GetMapping(value="/admin/home")
-    public ModelAndView home(){
+    public ModelAndView home(Model model){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getName());
-        modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
+        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
+        modelAndView.addObject("info","デバッグ中・・・");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
@@ -88,4 +89,10 @@ public class Accounts {
     	return modelAndView;
 
     }
+    @GetMapping(value="/admin/Users")
+    public ModelAndView Users() {
+    	ModelAndView modelAndView = new ModelAndView();
+    	modelAndView.setViewName("admin/Users");
+    	return modelAndView;
+    }    
 }

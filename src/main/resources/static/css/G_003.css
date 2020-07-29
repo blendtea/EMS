@@ -61,13 +61,22 @@ h1 {
 	height: 320px;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 242_Tanida
 .photo {
 	float: right;
 	position: relative;
 	left: -54%;
 }
 
+<<<<<<< HEAD
 .button3 {
+=======
+.button3{
+>>>>>>> 242_Tanida
 	width: 60px;
 	height: 30px;
 	position: relative;
@@ -75,6 +84,7 @@ h1 {
 	top: 104px;
 }
 
+<<<<<<< HEAD
 .font-size {
 	font-size: 100%;
 }
@@ -83,4 +93,15 @@ h1 {
 	position: relative;
 	top: 50px;
 }
+=======
+.font-size{
+	font-size: 100%;
+	}
+
+.free_super{
+	position: relative;
+	top: 50px;
+	}
+
+>>>>>>> 242_Tanida
 }
