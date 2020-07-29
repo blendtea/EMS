@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,14 +20,14 @@ public class Accounts {
 
     @Autowired
     private UserService userService;
-
+    //ログイン画面へ遷移する
     @GetMapping(value={"/", "/login"})
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
         return modelAndView;
     }
-
+    //登録画面へ遷移する
     @GetMapping(value="/registration")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -35,10 +36,13 @@ public class Accounts {
         modelAndView.setViewName("registration");
         return modelAndView;
     }
-
+    //登録情報を送信する
     @PostMapping(value = "/registration")
+    //@Validによるバリデーションチェックを含める
+    //ModelAndViewクラス(Model)からコントローラが取得した値をView側へ値を渡す
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
+        //UserRepository(リポジトリ=データ格納場所)からModelクラスでuserNameの値を取得する
         User userExists = userService.findUserByUserName(user.getUserName());
         if (userExists != null) {
             bindingResult
@@ -56,16 +60,39 @@ public class Accounts {
         }
         return modelAndView;
     }
-
+    //ログイン認証成功したアカウントのみアクセスできるページマッピング
     @GetMapping(value="/admin/home")
-    public ModelAndView home(){
+    public ModelAndView home(Model model){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-//      modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getName() + " " + user.getLastName());
-        modelAndView.addObject("adminMessage","ここはサービス利用登録者、管理者のみ閲覧可能です");
+        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
+        modelAndView.addObject("info","デバッグ中・・・");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
+    //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
+    @GetMapping(value="/admin/G_003")
+    public ModelAndView G_003() {
+    	ModelAndView modelAndView = new ModelAndView();
+    	modelAndView.setViewName("admin/G_003");
+    	return modelAndView;
+    }
+    @PostMapping(value = "/admin/G_003")
+    public ModelAndView createNewProfile() {
+        ModelAndView modelAndView = new ModelAndView();
+            userService.saveUser(profile);
+            modelAndView.addObject("successMessage", "登録が完了しました。");
+            modelAndView.addObject("profile", new Profile());
+            modelAndView.setViewName("admin/G_003");
+
+        }
+        return modelAndView;
+    }
+    @GetMapping(value="/admin/Users")
+    public ModelAndView Users() {
+    	ModelAndView modelAndView = new ModelAndView();
+    	modelAndView.setViewName("admin/Users");
+    	return modelAndView;
+    }    
 }
