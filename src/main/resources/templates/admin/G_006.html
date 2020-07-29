@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>ホーム画面</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/G_006.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<form th:action="@{/logout}" method="get">
+		<div>
+			<button class="logaut">ログアウト</button>
+		</div>
+	</form>
+
+	<div>
+		<span th:utext="${userName}"></span>
+	</div>
+	<form th:action="@{/admin/home}" method="get">
+		<div>
+			<button>プロフィール検索画面</button>
+		</div>
+	</form>
+	<form th:action="@{/admin/G_003}" method="get">
+		<div>
+			<button>マイプロフィール</button>
+		</div>
+	</form>
+</body>
+</html>
