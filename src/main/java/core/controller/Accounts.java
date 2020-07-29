@@ -66,7 +66,7 @@ public class Accounts {
     	ModelAndView modelAndView = new ModelAndView();
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByUserName(auth.getName());
-    	 modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getName());
+    	 modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
     	modelAndView.setViewName("admin/G_006");
     	return modelAndView;
     }
