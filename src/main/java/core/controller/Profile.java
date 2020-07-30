@@ -1,28 +1,5 @@
 package core.controller;
 
-<<<<<<< HEAD
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import core.model.User;
-import core.repository.UserRepository;
-
-@RestController
-public class Profile {
-	// create userlist for datatable at /admin/home
-    @Autowired
-    private UserRepository userRepository;
-    @GetMapping("/getuserlist")
-    public List<User> ID(Model model) {
-        List<User> list = userRepository.findAll();
-        return list;
-    }
-}
-=======
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -50,4 +27,3 @@ public class Profile {
  * システムロケーション
  * Registration=>Login=>Home=>{Search}|{[Profile]}
  */
->>>>>>> master
