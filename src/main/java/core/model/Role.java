@@ -26,3 +26,7 @@ public class Role {
     @Column(name = "role")
     private String role;
 }
+
+/*
+ * ロール情報モデル(Table = roles)
+ */
