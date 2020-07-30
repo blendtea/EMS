@@ -12,7 +12,7 @@ import core.repository.UserRepository;
 
 @RestController
 public class Search {
-	// create userlist for datatable at /admin/home
+	//登録ユーザー一覧をHomeにリスト表示する
     @Autowired
     private UserRepository userRepository;
     @GetMapping("/admin/search")
@@ -21,3 +21,8 @@ public class Search {
         return list;
     }
 }
+
+/* 
+ * システムロケーション
+ * Registration=>Login=>Home=>{[Search]}|{Profile}
+ */

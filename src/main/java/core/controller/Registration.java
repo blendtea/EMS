@@ -18,7 +18,7 @@ public class Registration {
 	@Autowired
     private UserService userService;
 	
-	 //登録画面へ遷移する
+	//登録画面へ遷移する
     @GetMapping(value="/registration")
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -29,11 +29,11 @@ public class Registration {
     }
     //登録情報を送信する
     @PostMapping(value = "/registration")
-    //@Validによるバリデーションチェックを含める
+    //@Validによるバリデーションチェックを行う
     //ModelAndViewクラス(Model)からコントローラが取得した値をView側へ値を渡す
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-        //UserRepository(リポジトリ=データ格納場所)からModelクラスでuserNameの値を取得する
+    //UserRepository(リポジトリ=データ格納場所)からModelクラスでuserNameの値を取得する
         User userExists = userService.findUserByUserName(user.getUserName());
         if (userExists != null) {
             bindingResult
@@ -44,6 +44,7 @@ public class Registration {
             modelAndView.setViewName("registration");
         } else {
             userService.saveUser(user);
+    //アカウント登録成功時に通知する
             modelAndView.addObject("successMessage", "登録が完了しました。ログインしてください");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
@@ -52,3 +53,8 @@ public class Registration {
         return modelAndView;
     }
 }
+
+/* 
+ * システムロケーション
+ * [Registration]=>Login=>Home=>{Search}|{Profile}
+ */

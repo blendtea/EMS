@@ -6,13 +6,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Profile {
-    //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
-    @GetMapping(value="/admin/G_003")
-    public ModelAndView G_003() {
+	
+	//メイン画面からプロフィールへ遷移する
+    @GetMapping(value="/admin/Profile")
+    public ModelAndView Edit() {
     	ModelAndView modelAndView = new ModelAndView();
-    	modelAndView.setViewName("admin/G_003");
+    	modelAndView.setViewName("admin/Profile");
     	return modelAndView;
     }
+    //サービスへ登録しているユーザーを一覧表示する
     @GetMapping(value="/admin/Users")
     public ModelAndView Users() {
     	ModelAndView modelAndView = new ModelAndView();
@@ -20,3 +22,8 @@ public class Profile {
     	return modelAndView;
     }    
 }
+
+/* 
+ * システムロケーション
+ * Registration=>Login=>Home=>{Search}|{[Profile]}
+ */

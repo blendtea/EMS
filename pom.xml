@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>core</groupId>
     <artifactId>EMS</artifactId>
-    <version>1.0.2-experimental</version>
+    <version>1.0.3-experimental</version>
     <packaging>war</packaging>
     <name>EMS</name>
     <description>A web service for manage employees list</description>
@@ -18,6 +18,10 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
+    	<dependency>
+		 <groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -72,6 +76,10 @@
             <version>1.12.5</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+	    	<groupId>com.fasterxml.jackson.core</groupId>
+	    	<artifactId>jackson-databind</artifactId>
+	    </dependency>
     </dependencies>
     <build>
         <finalName>EMS.app</finalName>

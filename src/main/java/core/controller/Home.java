@@ -22,9 +22,16 @@ public class Home {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
+        //Welcomeタグのモデル
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
+        //通知サービス。今後はプロフィール未登録を通知する予定
         modelAndView.addObject("info","デバッグ中・・・");
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
 }
+
+/* 
+ * システムロケーション
+ * Registration=>Login=>[Home]=>{Search}|{Profile}
+ */

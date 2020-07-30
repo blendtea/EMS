@@ -14,3 +14,8 @@ public class Login {
         return modelAndView;
     }
 }
+
+/* 
+ * システムロケーション
+ * Registration=>[Login]=>Home=>{Search}|{Profile}
+ */

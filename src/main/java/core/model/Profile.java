@@ -21,7 +21,7 @@ public class Profile implements Serializable {
 	private Long id;
 
 	@Column(name="name")
-	private String name;
+	private String fullName;
 
 	@Column(name="sex")
 	private String sex;
@@ -41,3 +41,8 @@ public class Profile implements Serializable {
 	@Column(name="msg")
 	private String shortMessage;
 }
+
+/*
+ * プロフィール情報モデル(Table = profile)
+ * (未使用クラス(未実装)
+ */
