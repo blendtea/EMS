@@ -1,86 +1,4 @@
-<<<<<<< Updated upstream
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <title>Admin Page</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- new source for datatable -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
-  	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-  	<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
-</head>
-
-<body>
-<div class="container">
-
-    <form th:action="@{/logout}" method="get">
-        <button class="btn btn-md btn-danger btn-block" name="registration"
-                type="Submit">ログアウト
-        </button>
-    </form>
-
-    <div class="panel-group" style="margin-top:40px">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <span th:utext="${userName}"></span>
-            </div>
-            <div class="panel-body">
-                <img th:src="@{/images/*.jpg}" class="img-responsive center-block" width="400" height="400"
-                     alt="img"/>
-            </div>
-            <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
-        </div>
-    </div>
-	<table id="accounts" class="table table-bordered table-hover table-lg">
-		<thead class="thead-light">
-			<tr>
-				<th>userName</th>
-				<th>lastName</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-</div>
-	<script th:inline="javascript">
-    /*<![CDATA[*/
-        var modalesectiondata = null;
-        $(function(){
-            // datatableの設定を変更
-            var modalesectiontable = $("#accounts").DataTable({
-                "bPaginate": true,
-                "bLengthChange": false,
-                "bFilter": true,
-                "bSort": false,
-                "bInfo": false,
-                "bAutoWidth": false,
-                "language": {
-                    "url": "https://cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Japanese.json"
-                },
-                "ajax": { url: /*[[@{/getuserlist}]]*/ 'getuserlist', dataSrc: '' },
-                "columns": [
-                    { data: "userName" },
-                    { data: "lastName" },
-                ],
-                "columnDefs": [
-                    { targets: 0, width: 60 },
-                    { targets: 1, width: 180 },
-                    {targets:'_all',className : 'dt-head-center'},
-                ]
-            });
-        })
-    /*]]>*/
-    </script>
-</body>
-=======
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
@@ -162,5 +80,4 @@
     /*]]>*/
     </script>
 </body>
->>>>>>> Stashed changes
 </html>

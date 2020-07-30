@@ -79,17 +79,20 @@ public class Accounts {
     	ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-        modelAndView.addObject("userName",user.getUserName());
+        modelAndView.addObject("employees_id",user.getUserName());
+        modelAndView.addObject("sex",user.getSex());
     	modelAndView.setViewName("admin/G_003");
     	return modelAndView;
     }
-    //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
-    @GetMapping(value="/admin/G_003")
-    public ModelAndView G_003() {
+    @PostMapping(value="/admin/G_003")
+    public ModelAndView ChangeInfo() {
     	ModelAndView modelAndView = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByUserName(auth.getName());
+        modelAndView.addObject("employees_id",user.getUserName());
+        modelAndView.addObject("sex",user.getSex());
     	modelAndView.setViewName("admin/G_003");
     	return modelAndView;
-
     }
 }
 
