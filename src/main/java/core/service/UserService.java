@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import core.model.ProfileData;
 import core.model.Role;
 import core.model.User;
-import core.model.Profile;
+import core.repository.ProfileRepository;
 import core.repository.RoleRepository;
 import core.repository.UserRepository;
 
@@ -18,14 +19,17 @@ public class UserService {
 
     private UserRepository userRepository;
     private RoleRepository roleRepository;
+    private ProfileRepository profileRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public UserService(UserRepository userRepository,
                        RoleRepository roleRepository,
+                       ProfileRepository profileRepository,
                        BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.profileRepository = profileRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -33,7 +37,11 @@ public class UserService {
         return userRepository.findByUserName(userName);
     }
 
-    public User saveUser(User user) {
+    public ProfileData findProfileByProfile(String Profile) {
+        return profileRepository.findByProfile(Profile);
+    }
+
+    public User saveUser(User usermm) {
     	user.setPassword(user.getPassword());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Role userRole = roleRepository.findByRole("ADMIN");
