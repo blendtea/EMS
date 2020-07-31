@@ -41,7 +41,7 @@ public class UserService {
         return profileRepository.findByProfile(Profile);
     }
 
-    public User saveUser(User usermm) {
+    public User saveUser(User user) {
     	user.setPassword(user.getPassword());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Role userRole = roleRepository.findByRole("ADMIN");

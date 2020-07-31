@@ -16,8 +16,8 @@ public class Profile {
     private UserService userService;
     //メイン画面からプロフィール編集画面へ遷移するためのページマッピング
 	//プロフィール編集画面にprofiledataから取得したデータを送る
-    @GetMapping(value="/admin/G_003")
-    public ModelAndView G_003() {
+    @GetMapping(value="/admin/henshuu")
+    public ModelAndView henshuu() {
     	ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         ProfileData profiledata = userService.findProfileByProfile(auth.getName());
@@ -29,11 +29,11 @@ public class Profile {
     	modelAndView.addObject("school",profiledata.getSchool());
     	modelAndView.addObject("hobby",profiledata.getHobby());
     	modelAndView.addObject("msg",profiledata.getShortMessage());
-    	modelAndView.setViewName("admin/G_003");
+    	modelAndView.setViewName("admin/henshuu");
     	return modelAndView;
     }
-    @GetMapping(value="/admin/G_004")
-    public ModelAndView G_004() {
+    @GetMapping(value="/admin/profile")
+    public ModelAndView profile() {
     	ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         ProfileData profiledata = userService.findProfileByProfile(auth.getName());
@@ -45,7 +45,7 @@ public class Profile {
     	modelAndView.addObject("school",profiledata.getSchool());
     	modelAndView.addObject("hobby",profiledata.getHobby());
     	modelAndView.addObject("msg",profiledata.getShortMessage());
-    	modelAndView.setViewName("admin/G_004");
+    	modelAndView.setViewName("admin/profile");
     	return modelAndView;
     }
 
