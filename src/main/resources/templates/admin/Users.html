@@ -43,13 +43,14 @@
 	</main>
 </div>
 -->
-    
+
 <table id="accounts"
 	class="table table-bordered table-hover table-lg">
 		<thead class="thead-light">
 			<tr>
 				<th>社員ID</th>
 				<th>氏名</th>
+				<th>所属・プロジェクト</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -79,11 +80,17 @@
 >>>>>>> master
                 "columns": [
                     { data: "userName" },
-                    { data: "lastName"}
+                    { data: "lastName" ,
+                    	render:function(data,row){
+                    		data = row.lastName + " " + row.firstName;
+                    		return data;
+                    	}},
+                    { data: "firstName" }
                 ],
                 "columnDefs": [
                     { targets: 0, width: 60 },
                     { targets: 1, width: 180 },
+                    { targets: 2, width: 180 },
                     {targets:'_all',className : 'dt-head-center'},
                 ]
             });

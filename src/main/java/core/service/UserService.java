@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import core.model.Role;
 import core.model.User;
+import core.model.Profile;
 import core.repository.RoleRepository;
 import core.repository.UserRepository;
 
