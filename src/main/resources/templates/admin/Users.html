@@ -43,13 +43,15 @@
 	</main>
 </div>
 -->
-    
-<table id="accounts"
+
+<table id="user"
 	class="table table-bordered table-hover table-lg">
 		<thead class="thead-light">
 			<tr>
 				<th>社員ID</th>
+				<th>氏</th>
 				<th>氏名</th>
+				<th>所属・プロジェクト</th>
 			</tr>
 		</thead>
 	<tbody>
@@ -62,7 +64,11 @@
         var modalesectiondata = null;
         $(function(){
             // datatableの設定を変更
-            var modalesectiontable = $("#accounts").DataTable({
+            var modalesectiontable = $("#user").DataTable({
+                // 1列目を昇順にする ( [ [ 列番号, 昇順降順 ], ... ] の形式)
+    			"order": [ [ 10, "asc" ] ],
+                // stateを保存する機能をつける
+                "stateSave": true,
                 "bPaginate": true,
                 "bLengthChange": false,
                 "bFilter": true,
@@ -74,12 +80,26 @@
                 },
                 "ajax": { url: /*[[@{/admin/search}]]*/ 'admin/search', dataSrc: '' },
                 "columns": [
-                    { data: "userName" },
-                    { data: "lastName"}
+                    { data: "userName",
+                    	render:function(data,type,row){
+                    		// userNameをリンクにします
+                    		return `<a th:href="@{/admin/profile/{UserName}(id=${'data'})}"　as view)'>${data}</a>`;
+                    	}},
+                    { data: "lastName" },
+                    { data: "firstName",
+                    	render:function(data,type,row){
+                    		// 文字列結合を行い文字列結合します
+                    	row.firstName = row.lastName + " " + row.firstName;
+                    	return row.firstName;
+                    	}
+                    },
+                    { data: "assigned" }
                 ],
                 "columnDefs": [
                     { targets: 0, width: 60 },
-                    { targets: 1, width: 180 },
+                    { targets: 1,visible: false },
+                    { targets: 2, width: 90 },
+                    { targets: 3, width: 270 },
                     {targets:'_all',className : 'dt-head-center'},
                 ]
             });

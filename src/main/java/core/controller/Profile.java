@@ -12,17 +12,16 @@ import org.springframework.web.servlet.ModelAndView;
 import core.model.User;
 import core.repository.UserRepository;
 
-@RestController
 @Controller
+@RestController
 public class Profile {
 	@Autowired
     private UserRepository userRepository;
-	
 	//メイン画面からプロフィールへ遷移する
-    @GetMapping(value="/admin/Profile")
+    @GetMapping(value="/admin/Edit")
     public ModelAndView Edit() {
     	ModelAndView modelAndView = new ModelAndView();
-    	modelAndView.setViewName("admin/Profile");
+    	modelAndView.setViewName("admin/Edit");
     	return modelAndView;
     }
     //登録ユーザ一覧をHomeにリスト表示する

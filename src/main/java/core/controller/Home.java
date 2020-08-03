@@ -17,7 +17,7 @@ public class Home {
 	@Autowired
     private UserService userService;
     //ログイン認証成功したアカウントのみアクセスできるページマッピング
-    @GetMapping(value="/admin/home")
+    @GetMapping(value="/admin/Home")
     public ModelAndView home(Model model){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -26,7 +26,7 @@ public class Home {
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
         //通知サービス。今後はプロフィール未登録を通知する予定
         modelAndView.addObject("info","デバッグ中・・・");
-        modelAndView.setViewName("admin/home");
+        modelAndView.setViewName("admin/Home");
         return modelAndView;
     }
 }
