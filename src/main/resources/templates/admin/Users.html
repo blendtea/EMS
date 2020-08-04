@@ -64,26 +64,26 @@
         var modalesectiondata = null;
         $(function(){
             // datatableの設定を変更
-            var modalesectiontable = $("#user").DataTable({
+            var modelsectiontable = $("#user").DataTable({
                 // 1列目を昇順にする ( [ [ 列番号, 昇順降順 ], ... ] の形式)
-    			"order": [ [ 10, "asc" ] ],
+    			<!--"order": [ [ 10, "asc" ] ],-->
                 // stateを保存する機能をつける
                 "stateSave": true,
                 "bPaginate": true,
                 "bLengthChange": false,
                 "bFilter": true,
-                "bSort": false,
+                "bSort": true,
                 "bInfo": false,
                 "bAutoWidth": false,
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Japanese.json"
                 },
-                "ajax": { url: /*[[@{/admin/search}]]*/ 'admin/search', dataSrc: '' },
+                "ajax": { url: /*[[@{/127.0.0.1}]]*/ 'admin/search', dataSrc: '' },
                 "columns": [
                     { data: "userName",
                     	render:function(data,type,row){
                     		// userNameをリンクにします
-                    		return `<a th:href="@{/admin/profile/{UserName}(id=${'data'})}"　as view)'>${data}</a>`;
+                    		return `<a th:href="@{/admin/profile/{UserName}(id=${'data'})}"'>${data}</a>`;
                     	}},
                     { data: "lastName" },
                     { data: "firstName",

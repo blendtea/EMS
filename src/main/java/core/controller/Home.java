@@ -25,7 +25,7 @@ public class Home {
         //Welcomeタグのモデル
         modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
         //通知サービス。今後はプロフィール未登録を通知する予定
-        modelAndView.addObject("info","デバッグ中・・・");
+        modelAndView.addObject("info","1.0.3-experimental");
         modelAndView.setViewName("admin/Home");
         return modelAndView;
     }
