@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>core</groupId>
     <artifactId>EMS</artifactId>
-    <version>1.0.3-experimental</version>
+    <version>1.1.0-experimental</version>
     <packaging>war</packaging>
     <name>EMS</name>
     <description>A web service for manage employees list</description>

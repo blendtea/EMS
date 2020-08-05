@@ -12,21 +12,26 @@ import core.model.User;
 import core.service.UserService;
 
 @Controller
-public class Home {
+public class Dashboard {
 	
 	@Autowired
     private UserService userService;
-    //ログイン認証成功したアカウントのみアクセスできるページマッピング
-    @GetMapping(value="/admin/Home")
-    public ModelAndView home(Model model){
+    //Dashboardへマッピングする
+    @GetMapping(value="/admin/Dashboard")
+    public ModelAndView Main(Model model){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-        //Welcomeタグのモデル
-        modelAndView.addObject("userName", "Welcome " + user.getUserName() + "/" + user.getLastName() + " " + user.getFirstName());
+        //Model String()
+        modelAndView.addObject("Welcome","ようこそ " + user.getLastName() + " " + user.getFirstName() + "さん");
+        modelAndView.addObject("Version","1.1.0");
+        modelAndView.addObject("Title","Welcome to EMS PROJECT");
+        modelAndView.addObject("GetStarted","In this service, you can know the profile of the user who registered in this service and the project to which they belong.");
+        modelAndView.addObject("updated","last updated : 5 Aug");
+        
         //通知サービス。今後はプロフィール未登録を通知する予定
         modelAndView.addObject("info","1.0.3-experimental");
-        modelAndView.setViewName("admin/Home");
+        modelAndView.setViewName("admin/Dashboard");
         return modelAndView;
     }
 }

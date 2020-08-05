@@ -8,7 +8,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,24 +17,12 @@ import core.service.UserService;
 
 @Controller
 @RestController
-public class Profile {
+public class UserProfile {
 	@Autowired
     private UserRepository userRepository;
 	@Autowired
     private UserService userService;
 	//Home画面からプロフィール編集へ遷移する
-	@GetMapping(value="/admin/Edit")
-    public ModelAndView Edit() {
-    	ModelAndView modelAndView = new ModelAndView();
-    	User user = new User();
-    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User finder = userService.findUserByUserName(auth.getName());
-    	modelAndView.addObject("userName",finder.getUserName());
-        modelAndView.addObject("Name",finder.getLastName() + finder.getFirstName());
-        modelAndView.addObject("user", user);
-    	modelAndView.setViewName("admin/Edit");
-    	return modelAndView;
-    }
 	//Home画面からプロフィール検索画面へ遷移する
 	@GetMapping(value="/admin/View")
     public ModelAndView View() {
@@ -60,12 +47,11 @@ public class Profile {
     	modelAndView.setViewName("admin/Users");	
     	return modelAndView;
     }
-    
-    @PostMapping(value = "/admin/Edit")
-    public ModelAndView Profile(){ 
+    @GetMapping(value="/admin/index")
+    public ModelAndView Index() {
     	ModelAndView modelAndView = new ModelAndView();
-    	modelAndView.setViewName("admin/Edit");        
-        return modelAndView;
+    	modelAndView.setViewName("admin/index");	
+    	return modelAndView;
     }
 }
 
