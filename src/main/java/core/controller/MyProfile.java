@@ -1,10 +1,14 @@
 package core.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import core.model.User;
@@ -16,26 +20,26 @@ public class MyProfile {
     private UserService userService;
 	@GetMapping(value="/admin/MyProfile")
     public ModelAndView Edit() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User finder = userService.findUserByUserName(auth.getName());
 		ModelAndView modelAndView = new ModelAndView();
-		User user = new User();
-        modelAndView.addObject("user", user);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User finder = userService.findUserByUserName(auth.getName());
+		MyProfile myprofile = new MyProfile();
+        //Object Mapping
+		modelAndView.addObject("myprofile", myprofile);
     	modelAndView.setViewName("admin/MyProfile");
+    	//Object data.String
+    	modelAndView.addObject("FirstName",finder.getFirstName());
+    	modelAndView.addObject("LastName",finder.getLastName());
     	modelAndView.addObject("fullName",finder.getLastName() + finder.getFirstName());
     	modelAndView.addObject("employees_ID","社員番号"+"#"+finder.getUserName());
     	return modelAndView;
 	}
-//	@SuppressWarnings("unused")
-//	@PostMapping(value = "/admin/MyProfile")
-//    public ModelAndView addNewUser(@Valid User user, BindingResult bindingResult) {
-//        ModelAndView modelAndView = new ModelAndView();
-//		User finder = userService.findUserByUserName(user.getUserName());
-//            userService.saveUser(user);
-//            modelAndView.addObject("successMessage", "登録が完了しました。");
-//            modelAndView.addObject("user", new User());
-//            modelAndView.setViewName("admin/MyProfile");
-//
-//        return modelAndView;
-//    }
+	
+	@PostMapping(value="/admin/MyProfile")
+	public ModelAndView createNewProfile(@Valid MyProfile myprofile, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+            modelAndView.addObject("myprofile", new MyProfile());
+            modelAndView.setViewName("admin/MyProfile");
+        return modelAndView;
+    }
 }

@@ -1404,6 +1404,7 @@ p.description {
   .title + .category {
     margin-top: -10px; }
 
+.card-title,
 .id,
 .comment,
 .card-description,

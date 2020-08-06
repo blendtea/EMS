@@ -17,13 +17,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "MyProfile")
+@Table(name = "myprofile")
 public class MyProfile {
 	//Account Details
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Integer id;
+    @Column(name = "user_name")
+    private String userName;
     // Profile Editor
     @Column(name="sex")
 	private String sex;
@@ -35,6 +37,8 @@ public class MyProfile {
 	private String school;
 	@Column(name="hobby")
 	private String hobby;
+	@Column(name="town")
+	private String town;
 	@Column(name="msg")
 	private String shortMessage;
 }
