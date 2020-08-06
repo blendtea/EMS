@@ -34,7 +34,7 @@ public class MyProfile {
 	@Column(name="birth")
 	private String birth;
 	@Column(name="school")
-	private String school;
+	private String school;	
 	@Column(name="hobby")
 	private String hobby;
 	@Column(name="town")

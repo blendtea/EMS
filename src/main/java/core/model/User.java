@@ -12,9 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-
-import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,18 +31,18 @@ public class User {
     @Column(name = "user_id")
     private Integer id;
     @Column(name = "user_name")
-    @Length(min = 3, max =3, message = "*社員IDが正しくありません。例)001")
-    @NotEmpty(message = "*社員IDを入力してください")
+//    @Length(min = 3, max =3, message = "*社員IDが正しくありません。例)001")
+//    @NotEmpty(message = "*社員IDを入力してください")
     private String userName;
     @Column(name = "password")
-    @Length(min = 5, message = "*パスワードは最低5文字以上入力してください")
-    @NotEmpty(message = "*パスワードを入力してください")
+//    @Length(min = 5, message = "*パスワードは最低5文字以上入力してください")
+//    @NotEmpty(message = "*パスワードを入力してください")
     private String password;
     @Column(name = "first_name")
-    @NotEmpty(message = "*名を入力してください")
+//    @NotEmpty(message = "*名を入力してください")
     private String firstName;
     @Column(name = "last_name")
-    @NotEmpty(message = "*姓を入力してください")
+//    @NotEmpty(message = "*姓を入力してください")
     private String lastName;
  // Profile Editor
     @Column(name="sex")

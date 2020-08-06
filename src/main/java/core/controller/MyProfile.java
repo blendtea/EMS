@@ -23,9 +23,9 @@ public class MyProfile {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User finder = userService.findUserByUserName(auth.getName());
 		ModelAndView modelAndView = new ModelAndView();
-		MyProfile myprofile = new MyProfile();
+		User user = new User();
         //Object Mapping
-		modelAndView.addObject("myprofile", myprofile);
+		modelAndView.addObject("user", user);
     	modelAndView.setViewName("admin/MyProfile");
     	//Object data.String
     	modelAndView.addObject("FirstName",finder.getFirstName());
@@ -35,11 +35,18 @@ public class MyProfile {
     	return modelAndView;
 	}
 	
-	@PostMapping(value="/admin/MyProfile")
-	public ModelAndView createNewProfile(@Valid MyProfile myprofile, BindingResult bindingResult) {
+	@PostMapping(value="/admin/MyProfile", params="new")
+	public ModelAndView createNewProfile(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-            modelAndView.addObject("myprofile", new MyProfile());
-            modelAndView.setViewName("admin/MyProfile");
+        User userExists = userService.findUserByUserName(user.getUserName());
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("admin/Dashboard");
+        } else {
+            userService.saveUser(user);
+        
+            modelAndView.addObject("user", new User());
+            modelAndView.setViewName("admin/MyProfile");   
+        }
         return modelAndView;
-    }
+	}
 }
