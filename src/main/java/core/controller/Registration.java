@@ -48,7 +48,6 @@ public class Registration {
             modelAndView.addObject("successMessage", "登録が完了しました。ログインしてください");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
-
         }
         return modelAndView;
     }

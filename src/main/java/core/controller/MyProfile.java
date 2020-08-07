@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import core.model.User;
@@ -30,20 +33,23 @@ public class MyProfile {
     	modelAndView.addObject("employees_ID","社員番号"+"#"+finder.getUserName());
     	return modelAndView;
 	}
-//	@Transactional
 //	@PostMapping("/admin/MyProfile")
-//	  public ModelAndView greetingSubmit(@ModelAttribute User user) {
+//    public ModelAndView createNewProfile(User user) {
 //		ModelAndView modelAndView = new ModelAndView();
-//	    modelAndView.addObject("user", user);
-//	    return modelAndView;
-//	  }
-	@PostMapping("/admin/MyProfile/" + "{userName}")
-    public ModelAndView createNewProfile(User user) {   
+//		//modelAndView.addObject("user", userService.findAll());
+//		userService.saves(user);
+//		modelAndView.addObject("user", new User());
+//		modelAndView.setViewName("redirect:/admin/MyProfile/?{userName}");
+//        return modelAndView;
+//	}
+	@PostMapping(value="/admin/MyProfile")
+	public ModelAndView View(@RequestParam Integer id, @ModelAttribute User user, BindingResult result) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("user", userService.findAll());
-		userService.saves(user);
-		modelAndView.addObject("user", new User());
-		modelAndView.setViewName("admin/MyProfile");
-        return modelAndView;
+		if (result.hasErrors()) {
+			modelAndView.setViewName("/admin/Dashboard");
+        }
+        userService.saves(user);
+    	modelAndView.setViewName("redirect:/admin/MyProfile");
+    	return modelAndView;
 	}
 }

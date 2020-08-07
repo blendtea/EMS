@@ -22,8 +22,6 @@ public class UserProfile {
     private UserRepository userRepository;
 	@Autowired
     private UserService userService;
-	//Home画面からプロフィール編集へ遷移する
-	//Home画面からプロフィール検索画面へ遷移する
 	@GetMapping(value="/admin/View")
     public ModelAndView View() {
     	ModelAndView modelAndView = new ModelAndView();
@@ -45,12 +43,6 @@ public class UserProfile {
     public ModelAndView Users() {
     	ModelAndView modelAndView = new ModelAndView();
     	modelAndView.setViewName("admin/Users");	
-    	return modelAndView;
-    }
-    @GetMapping(value="/admin/index")
-    public ModelAndView Index() {
-    	ModelAndView modelAndView = new ModelAndView();
-    	modelAndView.setViewName("admin/index");	
     	return modelAndView;
     }
 }

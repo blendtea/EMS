@@ -28,15 +28,7 @@ public class Dashboard {
         modelAndView.addObject("Title","Welcome to EMS PROJECT");
         modelAndView.addObject("GetStarted","In this service, you can know the profile of the user who registered in this service and the project to which they belong.");
         modelAndView.addObject("updated","last updated : 5 Aug");
-        
-        //通知サービス。今後はプロフィール未登録を通知する予定
-        modelAndView.addObject("info","1.0.3-experimental");
         modelAndView.setViewName("admin/Dashboard");
         return modelAndView;
     }
 }
-
-/* 
- * システムロケーション
- * Registration=>Login=>[Home]=>{Search}|{Profile}
- */

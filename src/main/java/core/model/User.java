@@ -59,7 +59,7 @@ public class User {
 	private String town;
 	@Column(name="msg")
 	private String msg;
-	
+
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;

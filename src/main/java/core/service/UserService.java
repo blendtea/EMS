@@ -3,6 +3,7 @@ package core.service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -39,10 +40,12 @@ public class UserService {
     public List <User> findAll() {
     	return userRepository.findAll();
     }
-    public void saves(User user) {
-    	userRepository.save(user);
+    public User saves(User user) {
+    	return userRepository.save(user);
     }
-
+    public Optional<User> selectById(long id) {
+    	return userRepository.findById(id);
+    }
     public User saveUser(User user) {
     	user.setPassword(user.getPassword());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
