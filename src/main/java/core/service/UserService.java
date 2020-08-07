@@ -2,6 +2,7 @@ package core.service;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -34,6 +35,12 @@ public class UserService {
 
     public User findUserByUserName(String userName) {
         return userRepository.findByUserName(userName);
+    }
+    public List <User> findAll() {
+    	return userRepository.findAll();
+    }
+    public void saves(User user) {
+    	userRepository.save(user);
     }
 
     public User saveUser(User user) {

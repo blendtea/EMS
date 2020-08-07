@@ -222,8 +222,6 @@
                   role="form">
                   <div class="row">
                     <div class="col-md-5 pr-1">
-                    <input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-					<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
                       <div class="form-group">
                         <label>社員番号 (リンク済み)</label>
                         
@@ -261,7 +259,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>趣味</label>
-                        <input type="text" class="form-control" placeholder="機械学習・多言語通訳・プログラミング・PCゲーム etc..." th:value="${hobby}">
+                        <input type="text" class="form-control" placeholder="機械学習・多言語通訳・プログラミング・PCゲーム etc..." th:field="*{hobby}">
                       </div>
                     </div>
                   </div>
@@ -269,19 +267,19 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>性別</label>
-                        <input type="text" class="form-control" placeholder="男性・中性・女性" th:value="${sex}">
+                        <input type="text" class="form-control" placeholder="男性・中性・女性" th:field="*{sex}">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>出身地</label>
-                        <input type="text" class="form-control" placeholder="ひらかたパーク" th:value="${town}">
+                        <input type="text" class="form-control" placeholder="ひらかたパーク" th:field="*{town}">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>出身校</label>
-                        <input type="text" class="form-control" placeholder="高等学校・大学" th:value="${school}">
+                        <input type="text" class="form-control" placeholder="高等学校・大学" th:field="*{school}">
                       </div>
                     </div>
                   </div>
@@ -289,13 +287,13 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>自己紹介</label>
-                        <textarea class="form-control textarea" placeholder="なんでもどうぞ！" th:value="${msg}"></textarea>
+                        <textarea class="form-control textarea" placeholder="なんでもどうぞ！" th:field="*{msg}"></textarea>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" name="new" class="btn btn-primary btn-round">Update Profile</button>
+                      <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
                     </div>
                   </div>
                 </form>
