@@ -4,11 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import core.model.User;
@@ -42,14 +39,19 @@ public class MyProfile {
 //		modelAndView.setViewName("redirect:/admin/MyProfile/?{userName}");
 //        return modelAndView;
 //	}
-	@PostMapping(value="/admin/MyProfile")
-	public ModelAndView View(@RequestParam Integer id, @ModelAttribute User user, BindingResult result) {
-		ModelAndView modelAndView = new ModelAndView();
-		if (result.hasErrors()) {
-			modelAndView.setViewName("/admin/Dashboard");
-        }
-        userService.saves(user);
-    	modelAndView.setViewName("redirect:/admin/MyProfile");
-    	return modelAndView;
+//	@PostMapping(value="/admin/MyProfile")
+//	public ModelAndView View(@RequestParam Integer id, @ModelAttribute User user, BindingResult result) {
+//		ModelAndView modelAndView = new ModelAndView();
+//		if (result.hasErrors()) {
+//			modelAndView.setViewName("/admin/Dashboard");
+//        }
+//        userService.saves(user);
+//    	modelAndView.setViewName("redirect:/admin/MyProfile");
+//    	return modelAndView;
+//	}
+	@PutMapping(value="/admin/MyProfile/update")
+	public String update(User user) {
+		userService.saves(user);
+		return "redirect:/admin/MyProfile";
 	}
 }
