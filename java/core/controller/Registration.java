@@ -14,10 +14,10 @@ import core.service.UserService;
 
 @Controller
 public class Registration {
-	
+
 	@Autowired
     private UserService userService;
-	
+
 	//登録画面へ遷移する
     @GetMapping(value="/registration")
     public ModelAndView registration(){
@@ -53,7 +53,7 @@ public class Registration {
     }
 }
 
-/* 
+/*
  * システムロケーション
  * [Registration]=>Login=>Home=>{Search}|{Profile}
  */

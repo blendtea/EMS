@@ -13,7 +13,7 @@ import core.service.UserService;
 
 @Controller
 public class Dashboard {
-	
+
 	@Autowired
     private UserService userService;
     //Dashboardへマッピングする

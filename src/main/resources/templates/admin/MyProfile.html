@@ -86,17 +86,17 @@
               <li class="nav-item">
                 <a class="nav-link btn-magnify" href="javascript:;">
                   <i class="nc-icon nc-layout-11"></i>
-                  
+
                     <span class="d-lg-none d-md-block">Stats</span>
-                  
+
                 </a>
               </li>
               <li class="nav-item btn-rotate dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="nc-icon nc-bell-55"></i>
-                  
+
                     <span class="d-lg-none d-md-block">Some Actions</span>
-                  
+
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="#">Action</a>
@@ -107,9 +107,9 @@
               <li class="nav-item">
                 <a class="nav-link btn-rotate" href="javascript:;">
                   <i class="nc-icon nc-settings-gear-65"></i>
-                  
+
                     <span class="d-lg-none d-md-block">Account</span>
-                  
+
                 </a>
               </li>
             </ul>
@@ -173,7 +173,7 @@
                         <br />
                         <span class="text-muted"><small></small></span>
                       </div>
-                      
+
                       <!--  -->
                     </div>
                   </li>
@@ -217,14 +217,14 @@
                 <h5 class="card-title">マイプロフィールを作成する</h5>
               </div>
               <div class="card-body">
-                <form autocomplete="off" action="#" th:action="@{/admin/MyProfile/update}"
+                <form autocomplete="off" action="#" th:action="@{/admin/MyProfile/edit}"
                 th:object="${user}" method="post" class="form-horizontal"
                   role="form">
                   <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>社員番号 (リンク済み)</label>
-                        
+
                         <input type="text" class="form-control" readonly th:value="${employees_ID}">
                       </div>
                     </div>
