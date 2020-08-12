@@ -3,6 +3,7 @@ package core.service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -32,34 +33,36 @@ public class UserService {
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
-
+    public User saveUser(User user) {
+    	user.setPassword(user.getPassword());
+    	user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    	Role userRole = roleRepository.findByRole("USER");
+    	user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+    	return userRepository.save(user);
+    }
+    //Addition
     public List <User> findAll() {
     	return userRepository.findAll();
     }
-    public User save(User user) {
-    	User finder = findById(user.getId());
-    	finder.setSex(user.getSex());
-    	finder.setAssigned(user.getAssigned());
-    	finder.setBirth(user.getBirth());
-    	finder.setSchool(user.getSchool());
-    	finder.setHobby(user.getHobby());
-    	finder.setTown(user.getTown());
-    	finder.setMsg(user.getMsg());
-    	return userRepository.save(user);
+    public User save(User finder) {
+    	finder.setSex(finder.getSex());
+    	finder.setAssigned(finder.getAssigned());
+    	finder.setBirth(finder.getBirth());
+    	finder.setSchool(finder.getSchool());
+    	finder.setHobby(finder.getHobby());
+    	finder.setTown(finder.getTown());
+    	finder.setMsg(finder.getMsg());
+    	return userRepository.save(finder);
     }
-
-    //Addition
     public User findUserByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
-    public User findById(Long id) {
-        return userRepository.findById(id).get();
-    }
-    public User saveUser(User user) {
-    	user.setPassword(user.getPassword());
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Role userRole = roleRepository.findByRole("ADMIN");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-        return userRepository.save(user);
+    public User findOne(Long id) {
+    	Optional<User> user = userRepository.findById(id);
+    	if(user.isPresent()) {
+    		return user.get();
+    	}else {
+    		return null;
+    	}
     }
 }

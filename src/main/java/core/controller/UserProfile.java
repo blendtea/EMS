@@ -22,14 +22,14 @@ public class UserProfile {
     private UserRepository userRepository;
 	@Autowired
     private UserService userService;
-	@GetMapping(value="/admin/View")
+	@GetMapping(value="/pages/View")
     public ModelAndView View() {
     	ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
     	modelAndView.addObject("userName",user.getUserName());
         modelAndView.addObject("fullName",user.getLastName() + " " + user.getFirstName());
-    	modelAndView.setViewName("admin/View");
+    	modelAndView.setViewName("pages/View");
     	return modelAndView;
     }
     //登録ユーザ一覧をリスト表示する
@@ -39,10 +39,10 @@ public class UserProfile {
         return list;
     }
     //サービスへ登録しているユーザーを一覧表示する
-    @GetMapping(value="/admin/Users")
+    @GetMapping(value="/pages/Users")
     public ModelAndView Users() {
     	ModelAndView modelAndView = new ModelAndView();
-    	modelAndView.setViewName("admin/Users");	
+    	modelAndView.setViewName("pages/Users");	
     	return modelAndView;
     }
 }

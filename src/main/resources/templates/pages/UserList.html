@@ -33,20 +33,20 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a th:href="@{/admin/Dashboard}">
+            <a th:href="@{/pages/Dashboard}">
               <i class="nc-icon nc-bank"></i>
               Dashboard
             </a>
           </li>
 
           <li>
-            <a th:href="@{/admin/MyProfile}">
+            <a th:href="@{/pages/MyProfile}">
               <i class="nc-icon nc-single-02"></i>
               My Profile
             </a>
           </li>
           <li class="active ">
-            <a th:href="@{/admin/UserList}">
+            <a th:href="@{/pages/UserList}">
               <i class="nc-icon nc-tile-56"></i>
               User List
             </a>
@@ -170,12 +170,12 @@
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Japanese.json"
                 },
-                "ajax": { url: /*[[@{/127.0.0.1}]]*/ 'admin/UserList', dataSrc: '' },
+                "ajax": { url: /*[[@{/127.0.0.1}]]*/ 'pages/UserList', dataSrc: '' },
                 "columns": [
                     { data: "userName",
                     	render:function(data,type,row){
                     		// userNameをリンクにします
-                    		return `<a href="/admin/profile/?id=${data}">${data}</a>`;
+                    		return `<a href="/pages/profile/?id=${data}">${data}</a>`;
                     	}},
                     { data: "lastName" },
                     { data: "firstName",

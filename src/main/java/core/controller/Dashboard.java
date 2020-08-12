@@ -17,7 +17,7 @@ public class Dashboard {
 	@Autowired
     private UserService userService;
     //Dashboardへマッピングする
-    @GetMapping(value="/admin/Dashboard")
+    @GetMapping(value="/pages/Dashboard")
     public ModelAndView Main(Model model){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -30,7 +30,7 @@ public class Dashboard {
         modelAndView.addObject("Title","Welcome to EMS PROJECT");
         modelAndView.addObject("GetStarted","Info board");
         modelAndView.addObject("updated","last updated : 12 Aug");
-        modelAndView.setViewName("admin/Dashboard");
+        modelAndView.setViewName("pages/Dashboard");
         return modelAndView;
     }
 }

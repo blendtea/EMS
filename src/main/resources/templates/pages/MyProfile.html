@@ -32,19 +32,19 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a th:href="@{/admin/Dashboard}">
+            <a th:href="@{/pages/Dashboard}">
               <i class="nc-icon nc-bank"></i>
               	Dashboard
             </a>
           </li>
           <li class="active ">
-            <a th:href="@{/admin/MyProfile}">
+            <a th:href="@{/pages/MyProfile}">
               <i class="nc-icon nc-single-02"></i>
               	My Profile
             </a>
           </li>
           <li>
-            <a th:href="@{/admin/UserList}">
+            <a th:href="@{/pages/UserList}">
               <i class="nc-icon nc-tile-56"></i>
               	User List
             </a>
@@ -217,7 +217,7 @@
                 <h5 class="card-title">マイプロフィールを作成する</h5>
               </div>
               <div class="card-body">
-                <form autocomplete="off" action="#" th:action="@{/admin/MyProfile/}"
+                <form autocomplete="off" action="#" th:action="@{/pages/MyProfile}"
                 th:object="${user}" method="post" class="form-horizontal"
                   role="form">
                   <div class="row">

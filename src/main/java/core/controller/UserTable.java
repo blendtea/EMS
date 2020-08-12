@@ -7,10 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserTable {
 	
-	@GetMapping(value="/admin/UserList")
+	@GetMapping(value="/pages/UserList")
 	public ModelAndView UserList() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("admin/UserList");
+		modelAndView.setViewName("pages/UserList");
 		return modelAndView;
 		}
 
