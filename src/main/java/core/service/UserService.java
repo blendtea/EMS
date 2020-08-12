@@ -44,15 +44,15 @@ public class UserService {
     public List <User> findAll() {
     	return userRepository.findAll();
     }
-    public User save(User finder) {
-    	finder.setSex(finder.getSex());
-    	finder.setAssigned(finder.getAssigned());
-    	finder.setBirth(finder.getBirth());
-    	finder.setSchool(finder.getSchool());
-    	finder.setHobby(finder.getHobby());
-    	finder.setTown(finder.getTown());
-    	finder.setMsg(finder.getMsg());
-    	return userRepository.save(finder);
+    public User save(User user) {
+    	user.setSex(user.getSex());
+    	user.setAssigned(user.getAssigned());
+    	user.setBirth(user.getBirth());
+    	user.setSchool(user.getSchool());
+    	user.setHobby(user.getHobby());
+    	user.setTown(user.getTown());
+    	user.setMsg(user.getMsg());
+    	return userRepository.save(user);
     }
     public User findUserByUserName(String userName) {
         return userRepository.findByUserName(userName);

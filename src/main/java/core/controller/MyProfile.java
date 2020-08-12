@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,10 +37,19 @@ public class MyProfile {
     	return mav;
 	}
 	@PostMapping(value="/pages/MyProfile")
-	public String update(@PathVariable Long id, @ModelAttribute User user) {
-		user.setId(id);
-		userService.save(user);
-		return "redirect:/pages/MyProfile";
+	public ModelAndView UpdateProfileCard(@ModelAttribute User user, BindingResult result) {
+		ModelAndView mav = new ModelAndView();
+		User finder = userService.findUserByUserName(user.getUserName());
+		if (result.hasErrors()) {
+			mav.setViewName("pages/Dashboard");
+		}else {
+	        if (finder != null) {
+	            userService.save(user);
+	            mav.addObject("user", new User());
+	            mav.setViewName("pages/Dashboard");
+	        }
+		}
+		return mav;
 	}
 //	 @PostMapping(value="/pages/MyProfile")
 //	    public ModelAndView Edit(User finder, BindingResult result) {
