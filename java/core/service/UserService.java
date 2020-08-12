@@ -3,7 +3,6 @@ package core.service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -33,14 +32,19 @@ public class UserService {
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
-    //Crud Repository
-    public Optional<User> findOne(Long id) {
-    	return userRepository.findById(id);
-    }
+
     public List <User> findAll() {
     	return userRepository.findAll();
     }
     public User save(User user) {
+    	User finder = findById(user.getId());
+    	finder.setSex(user.getSex());
+    	finder.setAssigned(user.getAssigned());
+    	finder.setBirth(user.getBirth());
+    	finder.setSchool(user.getSchool());
+    	finder.setHobby(user.getHobby());
+    	finder.setTown(user.getTown());
+    	finder.setMsg(user.getMsg());
     	return userRepository.save(user);
     }
 
@@ -48,11 +52,9 @@ public class UserService {
     public User findUserByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
-    /*
-    public Optional<User> selectById(long id) {
-    	return userRepository.findById(id);
-    }*/
-
+    public User findById(Long id) {
+        return userRepository.findById(id).get();
+    }
     public User saveUser(User user) {
     	user.setPassword(user.getPassword());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -60,33 +62,4 @@ public class UserService {
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         return userRepository.save(user);
     }
-//    public User createOrUpdateEmployee(User user)
-//	{
-//		if(user.getUserName()  == null)
-//		{
-//			user = repository.save(user);
-//
-//			return user;
-//		}
-//		else
-//		{
-//			User usr = userRepository.findByUserName(get.UserName());
-//
-//			if(user.isPresent())
-//			{
-//				User newuser = user.get();
-//				newuser.setUserName(user.getUserName());
-//				newuser.setFirstName(user.getFirstName());
-//				newuser.setLastName(user.getLastName());
-//
-//				newuser = UserRepository.save(user);
-//
-//				return newuser;
-//			} else {
-//				user = UserRepository.save(user);
-//
-//				return user;
-//			}
-//		}
-//	}
 }

@@ -23,7 +23,7 @@ public class MyProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private Integer id;
+    private Long id;
     @Column(name = "user_name")
     private String userName;
     // Profile Editor
@@ -34,7 +34,7 @@ public class MyProfile {
 	@Column(name="birth")
 	private String birth;
 	@Column(name="school")
-	private String school;	
+	private String school;
 	@Column(name="hobby")
 	private String hobby;
 	@Column(name="town")
