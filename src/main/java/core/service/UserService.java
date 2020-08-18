@@ -45,13 +45,6 @@ public class UserService {
     	return userRepository.findAll();
     }
     public User save(User user) {
-    	user.setSex(user.getSex());
-    	user.setAssigned(user.getAssigned());
-    	user.setBirth(user.getBirth());
-    	user.setSchool(user.getSchool());
-    	user.setHobby(user.getHobby());
-    	user.setTown(user.getTown());
-    	user.setMsg(user.getMsg());
     	return userRepository.save(user);
     }
     public User findUserByUserName(String userName) {
