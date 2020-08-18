@@ -2,8 +2,6 @@ package core.service;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -33,6 +31,7 @@ public class UserService {
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
+  //Custom userService <Registration Controller>
     public User saveUser(User user) {
     	user.setPassword(user.getPassword());
     	user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -40,22 +39,11 @@ public class UserService {
     	user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
     	return userRepository.save(user);
     }
-    //Addition
-    public List <User> findAll() {
-    	return userRepository.findAll();
-    }
+    //Custom userService <MyProfile Controller>
     public User save(User user) {
     	return userRepository.save(user);
     }
     public User findUserByUserName(String userName) {
         return userRepository.findByUserName(userName);
-    }
-    public User findOne(Long id) {
-    	Optional<User> user = userRepository.findById(id);
-    	if(user.isPresent()) {
-    		return user.get();
-    	}else {
-    		return null;
-    	}
     }
 }
