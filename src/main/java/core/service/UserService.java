@@ -25,13 +25,11 @@ public class UserService {
     @Autowired
     public UserService(UserRepository userRepository,
                        RoleRepository roleRepository,
-
                        BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
-  //Custom userService <Registration Controller>
     public User saveUser(User user) {
     	user.setPassword(user.getPassword());
     	user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -39,7 +37,6 @@ public class UserService {
     	user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
     	return userRepository.save(user);
     }
-    //Custom userService <MyProfile Controller>
     public User save(User user) {
     	return userRepository.save(user);
     }
