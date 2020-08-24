@@ -7,5 +7,5 @@ import core.Model.Profile;
 
 @Repository
 public interface UserProfileRepository extends JpaRepository<Profile, Long> {
-	Profile findByUserName(String userName);
+
 }

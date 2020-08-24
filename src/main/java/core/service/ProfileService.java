@@ -12,21 +12,15 @@ import core.Repository.UserProfileRepository;
 @Transactional
 public class ProfileService {
 
-    private UserProfileRepository profileRepository;
+	private UserProfileRepository profileRepository;
+
     @Autowired
     public ProfileService(UserProfileRepository profileRepository) {
-    	this.profileRepository = profileRepository;
-    	}
+        this.profileRepository = profileRepository;
+    }
 
     //Custom userService <Profile Model>
     public Profile save(Profile profile) {
-    	profile.setAssigned(profile.getAssigned());
-    	profile.setBirth(profile.getBirth());
-    	profile.setHobby(profile.getHobby());
-    	profile.setMsg(profile.getMsg());
-    	profile.setSchool(profile.getSchool());
-    	profile.setSex(profile.getSex());
-    	profile.setTown(profile.getTown());
     	return profileRepository.save(profile);
     }
 }

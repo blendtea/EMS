@@ -47,26 +47,11 @@ public class User {
     @Column(name = "last_name")
     @NotEmpty(message = "*姓を入力してください")
     private String lastName;
- // Profile Editor
-//    @Column(name="sex")
-//	private String sex;
-//	@Column(name="assigned")
-//	private String assigned;
-//	@Column(name="birth")
-//	private String birth;
-//	@Column(name="school")
-//	private String school;
-//	@Column(name="hobby")
-//	private String hobby;
-//	@Column(name="town")
-//	private String town;
-//	@Column(name="msg")
-//	private String msg;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-    
+
 }
 
 /*
