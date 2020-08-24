@@ -21,7 +21,7 @@ public class UserProfile {
         User user = userService.findUserByUserName(auth.getName());
     	modelAndView.addObject("userName",user.getUserName());
         modelAndView.addObject("fullName",user.getLastName() + " " + user.getFirstName());
-    	modelAndView.setViewName("pages/View");
+    	modelAndView.setViewName("pages/UserProfile");
     	return modelAndView;
     }
 }
