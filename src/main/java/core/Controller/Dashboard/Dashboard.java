@@ -1,4 +1,4 @@
-package core.controller;
+package core.Controller.Dashboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import core.model.User;
-import core.service.UserService;
+import core.Model.User;
+import core.Service.UserService;
 
 @Controller
 public class Dashboard {
