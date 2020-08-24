@@ -231,19 +231,19 @@
                       <div class="form-group">
                         <label>社員番号 (リンク済み)</label>
 
-                        <input type="text" class="form-control" readonly th:value="${employees_ID}">
+                        <input type="text" class="form-control" disabled th:value="${employees_ID}">
                       </div>
                     </div>
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>姓</label>
-                        <input type="text" class="form-control" readonly th:value="${LastName}">
+                        <input type="text" class="form-control" disabled th:value="${LastName}">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>名</label>
-                        <input type="text" class="form-control" readonly th:value="${FirstName}">
+                        <input type="text" class="form-control" disabled th:value="${FirstName}">
                       </div>
                     </div>
                   </div>
@@ -251,13 +251,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>生年月日</label>
-                        <input type="text" class="form-control" placeholder="" th:field="*{birth}" th:value="${birth}">
+                        <input type="text" class="form-control" th:field="*{birth}">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>所属・プロジェクト</label>
-                        <input type="text" class="form-control" placeholder="" th:field="*{assigned}" th:value="${assigned}">
+                        <input type="text" class="form-control" th:field="*{assigned}">
                       </div>
                     </div>
                   </div>
@@ -265,7 +265,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>趣味</label>
-                        <input type="text" class="form-control" placeholder="" th:field="*{hobby}" th:value="${hobby}">
+                        <input type="text" class="form-control" th:field="*{hobby}">
                       </div>
                     </div>
                   </div>
@@ -273,19 +273,19 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>性別</label>
-                        <input type="text" class="form-control" placeholder="" th:field="*{sex}" th:value="${sex}">
+                        <input type="text" class="form-control" th:field="*{sex}">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>出身地</label>
-                        <input type="text" class="form-control" placeholder="" th:field="*{town}" th:value="${town}">
+                        <input type="text" class="form-control" th:field="*{town}">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>出身校</label>
-                        <input type="text" class="form-control" placeholder="" th:field="*{school}" th:value="${school}">
+                        <input type="text" class="form-control" th:field="*{school}">
                       </div>
                     </div>
                   </div>
@@ -293,7 +293,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>自己紹介</label>
-                        <textarea class="form-control textarea" placeholder="" th:field="*{msg}" th:value="${msg}"></textarea>
+                        <textarea class="form-control textarea" th:field="*{msg}"></textarea>
                       </div>
                     </div>
                   </div>
