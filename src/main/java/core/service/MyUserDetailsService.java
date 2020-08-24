@@ -1,4 +1,4 @@
-package core.service;
+package core.Service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,8 +14,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import core.model.Role;
-import core.model.User;
+import core.Model.Role;
+import core.Model.User;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {

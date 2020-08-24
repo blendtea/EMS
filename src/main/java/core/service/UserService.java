@@ -1,4 +1,4 @@
-package core.service;
+package core.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import core.model.Role;
-import core.model.User;
-import core.repository.RoleRepository;
-import core.repository.UserRepository;
+import core.Model.Role;
+import core.Model.User;
+import core.Repository.RoleRepository;
+import core.Repository.UserRepository;
 
 @Service
 @Transactional
