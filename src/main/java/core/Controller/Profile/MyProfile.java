@@ -62,11 +62,10 @@ public class MyProfile {
 			}else {
 				profile.setId(finder.getId());
 				profile.setUserName(finder.getUserName());
-				System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
-				System.out.println("finder CPU : " + profile.toString());
-				System.out.println(" ");System.out.println(" ");System.out.println(" ");System.out.println(" ");
+				profile.setFirstName(finder.getFirstName());
+				profile.setLastName(finder.getLastName());
 				profileService.save(profile);
-				mav.setViewName("redirect:/pages/iFunBox");
+				mav.setViewName("redirect:/pages/MyProfile");
 				}
 		return mav;
 		}
