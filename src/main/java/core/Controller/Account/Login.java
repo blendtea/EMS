@@ -1,4 +1,4 @@
-package core.controller;
+package core.Controller.Account;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +14,3 @@ public class Login {
         return modelAndView;
     }
 }
-
-/* 
- * システムロケーション
- * Registration=>[Login]=>Home=>{Search}|{Profile}
- */

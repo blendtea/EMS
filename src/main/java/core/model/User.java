@@ -1,4 +1,4 @@
-package core.model;
+package core.Model;
 
 import java.util.Set;
 
@@ -28,10 +28,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "users")
 public class User {
+	//Account Details
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private Integer id;
+    private Long id;
     @Column(name = "user_name")
     @Length(min = 3, max =3, message = "*社員IDが正しくありません。例)001")
     @NotEmpty(message = "*社員IDを入力してください")
@@ -46,9 +47,11 @@ public class User {
     @Column(name = "last_name")
     @NotEmpty(message = "*姓を入力してください")
     private String lastName;
+
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
 }
 
 /*

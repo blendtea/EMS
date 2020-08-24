@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>core</groupId>
     <artifactId>EMS</artifactId>
-    <version>1.0.3-experimental</version>
+    <version>1.2.0-experimental</version>
     <packaging>war</packaging>
     <name>EMS</name>
     <description>A web service for manage employees list</description>
@@ -58,12 +58,12 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
             <version>1.3-groovy-2.5</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>

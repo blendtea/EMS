@@ -1,4 +1,4 @@
-package core.controller;
+package core.Controller.Account;
 
 import javax.validation.Valid;
 
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import core.model.User;
-import core.service.UserService;
+import core.Model.User;
+import core.Service.UserService;
 
 @Controller
 public class Registration {
-	
+
 	@Autowired
     private UserService userService;
-	
+
 	//登録画面へ遷移する
     @GetMapping(value="/registration")
     public ModelAndView registration(){
@@ -48,13 +48,12 @@ public class Registration {
             modelAndView.addObject("successMessage", "登録が完了しました。ログインしてください");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
-
         }
         return modelAndView;
     }
 }
 
-/* 
+/*
  * システムロケーション
  * [Registration]=>Login=>Home=>{Search}|{Profile}
  */
