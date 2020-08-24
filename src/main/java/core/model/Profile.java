@@ -1,4 +1,4 @@
-package core.model;
+package core.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +26,11 @@ public class Profile {
     private Long id;
     @Column(name = "user_name")
     private String userName;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
+
     @Column(name="sex")
 	private String sex;
 	@Column(name="assigned")
