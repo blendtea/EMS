@@ -22,14 +22,12 @@ public class Dashboard {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-//        User finder = userService.findById(id);
-//        model.addAttribute("finder", finder);
         //Model String()
         modelAndView.addObject("Welcome","ようこそ " + user.getLastName() + " " + user.getFirstName() + "さん");
-        modelAndView.addObject("Version","1.1.0");
+        modelAndView.addObject("Version","1.2.0");
         modelAndView.addObject("Title","Welcome to EMS PROJECT");
         modelAndView.addObject("GetStarted","Info board");
-        modelAndView.addObject("updated","last updated : 12 Aug");
+        modelAndView.addObject("updated","last updated : 24 Aug");
         modelAndView.setViewName("pages/Dashboard");
         return modelAndView;
     }
