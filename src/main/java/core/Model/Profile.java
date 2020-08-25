@@ -44,7 +44,3 @@ public class Profile {
 	private String msg;
 
 }
-
-/*
- * アカウント情報モデル(Table = users)
- */

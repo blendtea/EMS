@@ -8,13 +8,12 @@ import core.Model.User;
 
 @Controller
 public class Login {
-	//ログイン画面へ遷移する
     @GetMapping(value={"/", "/login"})
     public ModelAndView login(){
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView mav = new ModelAndView();
         User user = new User();
-        modelAndView.addObject("user", user);
-        modelAndView.setViewName("startup");
-        return modelAndView;
+        mav.addObject("user", user);
+        mav.setViewName("startup");
+        return mav;
     }
 }

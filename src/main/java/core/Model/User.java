@@ -53,7 +53,3 @@ public class User {
     private Set<Role> roles;
 
 }
-
-/*
- * アカウント情報モデル(Table = users)
- */
