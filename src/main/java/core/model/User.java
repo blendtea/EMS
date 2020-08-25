@@ -34,18 +34,18 @@ public class User {
     @Column(name = "user_id")
     private Long id;
     @Column(name = "user_name")
-    @Length(min = 3, max =3, message = "*社員IDが正しくありません。例)001")
-    @NotEmpty(message = "*社員IDを入力してください")
+    @Length(min = 3, max =3, message = "*必須項目")
+    @NotEmpty(message = "")
     private String userName;
     @Column(name = "password")
-    @Length(min = 5, message = "*パスワードは最低5文字以上入力してください")
-    @NotEmpty(message = "*パスワードを入力してください")
+    @Length(min = 5, message = "*最低5文字以上")
+//  @NotEmpty(message = "")
     private String password;
     @Column(name = "first_name")
-    @NotEmpty(message = "*名を入力してください")
+    @NotEmpty(message = "*必須項目")
     private String firstName;
     @Column(name = "last_name")
-    @NotEmpty(message = "*姓を入力してください")
+    @NotEmpty(message = "*必須項目")
     private String lastName;
 
     @ManyToMany(cascade = CascadeType.MERGE)
