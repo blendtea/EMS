@@ -23,4 +23,7 @@ public class ProfileService {
     public Profile save(Profile profile) {
     	return profileRepository.save(profile);
     }
+    public Profile findUserByUserName(String userName) {
+    	return profileRepository.findByUserName(userName);
+    }
 }
