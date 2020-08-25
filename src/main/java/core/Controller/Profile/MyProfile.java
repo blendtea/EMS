@@ -29,8 +29,13 @@ public class MyProfile {
     public ModelAndView MyProfileCard(Profile profile, User identifier) {
 		ModelAndView mav = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		//identifierはプロフィール情報と紐づける為にアカウント情報を一部取得する
 		identifier = userService.findUserByUserName(auth.getName());
+		//profileは自分のプロフィール情報を取得する(作成していない場合は登録する)
+		profile = profileService.findUserByUserName(auth.getName());
+		//profileオブジェクト作成
 		mav.addObject("profile", profile);
+		//mav.toString()
 		mav.addObject("FirstName",identifier.getFirstName());
     	mav.addObject("LastName",identifier.getLastName());
     	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
