@@ -21,39 +21,33 @@ public class Registration {
 	//登録画面へ遷移する
     @GetMapping(value="/registration")
     public ModelAndView registration(){
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView mav = new ModelAndView();
         User user = new User();
-        modelAndView.addObject("user", user);
-        modelAndView.setViewName("registration");
-        return modelAndView;
+        mav.addObject("user", user);
+        mav.setViewName("startup");
+        return mav;
     }
     //登録情報を送信する
     @PostMapping(value = "/registration")
-    //@Validによるバリデーションチェックを行う
-    //ModelAndViewクラス(Model)からコントローラが取得した値をView側へ値を渡す
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-    //UserRepository(リポジトリ=データ格納場所)からModelクラスでuserNameの値を取得する
+        ModelAndView mav = new ModelAndView();
         User userExists = userService.findUserByUserName(user.getUserName());
         if (userExists != null) {
             bindingResult
                     .rejectValue("userName", "error.user",
-                            "*既に社員IDは登録されています");
+                            "*登録済み");
         }
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("registration");
+            mav.setViewName("startup");
+            mav.addObject("failedMessage","登録に失敗しました");
+            mav.addObject("tryMessage","再試行してください");
         } else {
             userService.saveUser(user);
     //アカウント登録成功時に通知する
-            modelAndView.addObject("successMessage", "登録が完了しました。ログインしてください");
-            modelAndView.addObject("user", new User());
-            modelAndView.setViewName("registration");
+            mav.addObject("successMessage", "登録が完了しました");
+            mav.addObject("user", new User());
+            mav.setViewName("startup");
         }
-        return modelAndView;
+        return mav;
     }
 }
-
-/*
- * システムロケーション
- * [Registration]=>Login=>Home=>{Search}|{Profile}
- */

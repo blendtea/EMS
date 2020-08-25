@@ -19,16 +19,16 @@ public class Dashboard {
     //Dashboardへマッピングする
     @GetMapping(value="/pages/Dashboard")
     public ModelAndView Main(Model model){
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView mav = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
         //Model String()
-        modelAndView.addObject("Welcome","ようこそ " + user.getLastName() + " " + user.getFirstName() + "さん");
-        modelAndView.addObject("Version","1.2.0");
-        modelAndView.addObject("Title","Welcome to EMS PROJECT");
-        modelAndView.addObject("GetStarted","Info board");
-        modelAndView.addObject("updated","last updated : 24 Aug");
-        modelAndView.setViewName("pages/Dashboard");
-        return modelAndView;
+        mav.addObject("Welcome","ようこそ " + user.getLastName() + " " + user.getFirstName() + "さん");
+        mav.addObject("Version","1.2.1");
+        mav.addObject("Title","Welcome to EMS PROJECT");
+        mav.addObject("GetStarted","Info board");
+        mav.addObject("updated","last updated : 25 Aug");
+        mav.setViewName("pages/Dashboard");
+        return mav;
     }
 }

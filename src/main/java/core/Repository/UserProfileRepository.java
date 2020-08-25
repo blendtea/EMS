@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 import core.Model.Profile;
 
 @Repository
-public interface UserProfileRepository extends JpaRepository<Profile, Long> {
-
-}
+public interface UserProfileRepository extends JpaRepository<Profile, Long> {}

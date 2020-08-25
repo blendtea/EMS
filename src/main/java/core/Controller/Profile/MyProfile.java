@@ -1,5 +1,7 @@
 package core.Controller.Profile;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -16,6 +18,7 @@ import core.Service.ProfileService;
 import core.Service.UserService;
 
 @Controller
+@Transactional
 public class MyProfile {
 	@Autowired
     private UserService userService;
@@ -27,6 +30,7 @@ public class MyProfile {
 		ModelAndView mav = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		identifier = userService.findUserByUserName(auth.getName());
+		mav.addObject("profile", profile);
 		mav.addObject("FirstName",identifier.getFirstName());
     	mav.addObject("LastName",identifier.getLastName());
     	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
@@ -34,19 +38,6 @@ public class MyProfile {
 		mav.setViewName("pages/MyProfile");
 		return mav;
 	}
-	@GetMapping(value="/pages/iFunBox")
-	public ModelAndView TestField(Profile profile, User identifier) {
-		ModelAndView mav = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		identifier = userService.findUserByUserName(auth.getName());
-		mav.addObject("FirstName",identifier.getFirstName());
-    	mav.addObject("LastName",identifier.getLastName());
-    	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
-    	mav.addObject("employees_ID",identifier.getUserName());
-		mav.setViewName("pages/MyProfile");
-		return mav;
-	}
-
 	@PostMapping(value="/pages/MyProfile")
 	@PreAuthorize("hasRole('USER')")
 	public ModelAndView findByUserName(Profile profile, User finder, BindingResult result) {
@@ -65,6 +56,7 @@ public class MyProfile {
 				profile.setFirstName(finder.getFirstName());
 				profile.setLastName(finder.getLastName());
 				profileService.save(profile);
+				mav.addObject("profile", profile);
 				mav.setViewName("redirect:/pages/MyProfile");
 				}
 		return mav;

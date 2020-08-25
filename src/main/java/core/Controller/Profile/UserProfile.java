@@ -16,17 +16,12 @@ public class UserProfile {
     private UserService userService;
 	@GetMapping(value="/pages/View")
     public ModelAndView View() {
-    	ModelAndView modelAndView = new ModelAndView();
+    	ModelAndView mav = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByUserName(auth.getName());
-    	modelAndView.addObject("userName",user.getUserName());
-        modelAndView.addObject("fullName",user.getLastName() + " " + user.getFirstName());
-    	modelAndView.setViewName("pages/View");
-    	return modelAndView;
+    	mav.addObject("userName",user.getUserName());
+        mav.addObject("fullName",user.getLastName() + " " + user.getFirstName());
+    	mav.setViewName("pages/UserProfile");
+    	return mav;
     }
 }
-
-/*
- * システムロケーション
- * Registration=>Login=>Home=>{Search}|{[Profile]}
- */

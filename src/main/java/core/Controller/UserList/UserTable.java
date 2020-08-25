@@ -19,9 +19,9 @@ public class UserTable {
 
 	@GetMapping(value="/pages/UserList")
 	public ModelAndView UserList() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("pages/UserList");
-		return modelAndView;
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("pages/UserList");
+		return mav;
 		}
 	//登録ユーザ一覧をリスト表示する
     @GetMapping("/127.0.0.1")
@@ -32,9 +32,9 @@ public class UserTable {
     //サービスへ登録しているユーザーを一覧表示する
     @GetMapping(value="/pages/Users")
     public ModelAndView Users() {
-    	ModelAndView modelAndView = new ModelAndView();
-    	modelAndView.setViewName("pages/Users");
-    	return modelAndView;
+    	ModelAndView mav = new ModelAndView();
+    	mav.setViewName("pages/Users");
+    	return mav;
     }
 
 }

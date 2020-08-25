@@ -1,5 +1,21 @@
+/*バリデーション時のテキスト位置調整*/
+
 .validation-message {
     font-style: normal;
     font-size: 12px;
     color: #FF1C19;
+}
+.validation-name {
+	margin-left: 20px;
+    font-style: normal;
+}
+.validation-ID {
+	margin-top: 0px;
+	margin-left: 117px;
+    font-style: normal;
+}
+.validation-PSK {
+	margin-top: 0px;
+	margin-left: 85px;
+    font-style: normal;
 }
