@@ -24,7 +24,7 @@ public class Dashboard {
         User user = userService.findUserByUserName(auth.getName());
         //Model String()
         mav.addObject("Welcome","ようこそ " + user.getLastName() + " " + user.getFirstName() + "さん");
-        mav.addObject("Version","1.2.1");
+        mav.addObject("Version","1.2.2");
         mav.addObject("Title","Welcome to EMS PROJECT");
         mav.addObject("GetStarted","Info board");
         mav.addObject("updated","last updated : 25 Aug");
