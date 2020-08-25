@@ -7,3 +7,4 @@ target/
 .project
 src/test/
 .DS_Store
+application.properties
