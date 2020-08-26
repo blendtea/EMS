@@ -34,15 +34,24 @@ public class MyProfile {
 		//profileは自分のプロフィール情報を取得する(作成していない場合は登録する)
 		profile = profileService.findUserByUserName(auth.getName());
 		//profileオブジェクト作成
-		mav.addObject("profile", profile);
-		//mav.toString()
-		mav.addObject("FirstName",identifier.getFirstName());
-    	mav.addObject("LastName",identifier.getLastName());
-    	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
-    	mav.addObject("employees_ID",identifier.getUserName());
-		mav.setViewName("pages/MyProfile");
-		return mav;
-	}
+		if (profile == null) {
+			mav.addObject("FirstName",identifier.getFirstName());
+	    	mav.addObject("LastName",identifier.getLastName());
+	    	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
+	    	mav.addObject("employees_ID",identifier.getUserName());
+			mav.setViewName("pages/MyProfile");
+			return mav;
+		}else {
+			mav.addObject("profile", profile);
+			mav.addObject("FirstName",identifier.getFirstName());
+	    	mav.addObject("LastName",identifier.getLastName());
+	    	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
+	    	mav.addObject("employees_ID",identifier.getUserName());
+			mav.setViewName("pages/MyProfile");
+			}
+			return mav;
+		}
+	
 	@PostMapping(value="/pages/MyProfile")
 	@PreAuthorize("hasRole('USER')")
 	public ModelAndView findByUserName(Profile profile, User finder, BindingResult result) {
