@@ -36,5 +36,4 @@ public class UserTable {
     	mav.setViewName("pages/Users");
     	return mav;
     }
-
 }

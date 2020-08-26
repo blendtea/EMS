@@ -135,7 +135,7 @@
                     <img class="avatar border-gray" th:src="@{/img/avatar.png}" alt="...">
                     <div class="title" th:text=${fullName}></div>
                   </a>
-                  <p class="id" th:text=${employees_ID}></p>
+                  <p class="id" th:text=${emsID}></p>
                 </div>
                 <p class="comment text-center" th:text="${comment}"></p>
               </div>
@@ -231,7 +231,7 @@
                       <div class="form-group">
                         <label>社員番号 (リンク済み)</label>
 
-                        <input type="text" class="form-control" disabled th:value="${employees_ID}">
+                        <input type="text" class="form-control" disabled th:value="${emsID}">
                       </div>
                     </div>
                     <div class="col-md-3 px-1">

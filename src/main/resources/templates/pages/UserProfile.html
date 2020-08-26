@@ -135,7 +135,7 @@
                     <img class="avatar border-gray" th:src="@{/img/avatar.png}" alt="...">
                     <div class="title" th:text=${fullName}></div>
                   </a>
-                  <p class="id" th:text=${employees_ID}></p>
+                  <p class="id" th:text="${emsID}"></p>
                 </div>
                 <p class="comment text-center" th:text="${comment}"></p>
               </div>
@@ -220,7 +220,7 @@
           <div class="col-md-8">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">マイプロフィールを作成する</h5>
+                <!-- <h5 class="card-title">Contexts</h5> -->
               </div>
               <div class="card-body">
                 <form autocomplete="off" action="#" th:action="@{/pages/UserList}"
@@ -231,19 +231,19 @@
                       <div class="form-group">
                         <label>社員番号 (リンク済み)</label>
 
-                        <input type="text" class="form-control" disabled th:value="${employees_ID}">
+                        <input type="text" class="form-control" disabled th:field="*{userName}">
                       </div>
                     </div>
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>姓</label>
-                        <input type="text" class="form-control" disabled th:value="${LastName}">
+                        <input type="text" class="form-control" disabled th:field="*{lastName}">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>名</label>
-                        <input type="text" class="form-control" disabled th:value="${FirstName}">
+                        <input type="text" class="form-control" disabled th:field="*{firstName}">
                       </div>
                     </div>
                   </div>
@@ -251,13 +251,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>生年月日</label>
-                        <input type="text" class="form-control" disabled th:value="${birth}">
+                        <input type="text" class="form-control" disabled th:field="*{birth}">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>所属・プロジェクト</label>
-                        <input type="text" class="form-control" disabled th:value="${assigned}">
+                        <input type="text" class="form-control" disabled th:field="*{assigned}">
                       </div>
                     </div>
                   </div>
@@ -265,7 +265,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>趣味</label>
-                        <input type="text" class="form-control" disabled th:value="${hobby}">
+                        <input type="text" class="form-control" disabled th:field="*{hobby}">
                       </div>
                     </div>
                   </div>
@@ -273,19 +273,19 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>性別</label>
-                        <input type="text" class="form-control" disabled th:value="${sex}">
+                        <input type="text" class="form-control" disabled th:field="*{sex}">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>出身地</label>
-                        <input type="text" class="form-control" disabled th:value="${town}">
+                        <input type="text" class="form-control" disabled th:field="*{town}">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>出身校</label>
-                        <input type="text" class="form-control" disabled th:value="${school}">
+                        <input type="text" class="form-control" disabled th:field="*{school}">
                       </div>
                     </div>
                   </div>
@@ -293,7 +293,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>自己紹介</label>
-                        <textarea class="form-control textarea" disabled th:value="${msg}"></textarea>
+                        <textarea class="form-control textarea" disabled th:field="*{msg}"></textarea>
                       </div>
                     </div>
                   </div>

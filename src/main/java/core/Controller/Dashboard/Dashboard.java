@@ -35,9 +35,9 @@ public class Dashboard {
         }
         //Model String()
         mav.addObject("Welcome","ようこそ " + user.getLastName() + " " + user.getFirstName() + "さん");
-        mav.addObject("Version","1.2.2");
+        mav.addObject("Version","1.2.5");
         mav.addObject("Title","Welcome to EMS PROJECT");
-        mav.addObject("updated","last updated : 25 Aug");
+        mav.addObject("updated","last updated : 26 Aug");
         mav.setViewName("pages/Dashboard");
         return mav;
     }

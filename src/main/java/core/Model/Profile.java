@@ -42,5 +42,4 @@ public class Profile {
 	private String town;
 	@Column(name="msg")
 	private String msg;
-
 }

@@ -17,8 +17,11 @@ public class UserProfile {
 	@GetMapping(value="/pages/profile/id={userName}")
     public ModelAndView View(@ModelAttribute Profile profile, @PathVariable String userName) {
     	ModelAndView mav = new ModelAndView();
-//    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//    	profile = profileService.findUserByUserName(auth.getName());
+    	profile = profileService.findUserByUserName(userName);
+    	mav.addObject("emsID", userName);
+    	mav.addObject("fullName", profile.getLastName() + " " + profile.getFirstName());
+    	mav.addObject("profile", profile);
+    	System.out.println(profile);
     	mav.setViewName("pages/UserProfile");
     	return mav;
     }

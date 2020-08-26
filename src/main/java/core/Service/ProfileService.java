@@ -18,7 +18,6 @@ public class ProfileService {
     public ProfileService(UserProfileRepository profileRepository) {
         this.profileRepository = profileRepository;
     }
-
     //Custom userService <Profile Model>
     public Profile save(Profile profile) {
     	return profileRepository.save(profile);
