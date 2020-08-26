@@ -30,7 +30,6 @@ public class MyUserDetailsService implements UserDetailsService {
         List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
         return buildUserForAuthentication(user, authorities);
     }
-
     private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
         Set<GrantedAuthority> roles = new HashSet<>();
         for (Role role : userRoles) {

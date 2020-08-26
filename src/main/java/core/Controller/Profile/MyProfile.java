@@ -38,7 +38,7 @@ public class MyProfile {
 			mav.addObject("FirstName",identifier.getFirstName());
 	    	mav.addObject("LastName",identifier.getLastName());
 	    	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
-	    	mav.addObject("employees_ID",identifier.getUserName());
+	    	mav.addObject("emsID",identifier.getUserName());
 			mav.setViewName("pages/MyProfile");
 			return mav;
 		}else {
@@ -46,12 +46,12 @@ public class MyProfile {
 			mav.addObject("FirstName",identifier.getFirstName());
 	    	mav.addObject("LastName",identifier.getLastName());
 	    	mav.addObject("fullName",identifier.getLastName() + identifier.getFirstName());
-	    	mav.addObject("employees_ID",identifier.getUserName());
+	    	mav.addObject("emsID",identifier.getUserName());
 			mav.setViewName("pages/MyProfile");
 			}
 			return mav;
 		}
-	
+
 	@PostMapping(value="/pages/MyProfile")
 	@PreAuthorize("hasRole('USER')")
 	public ModelAndView findByUserName(Profile profile, User finder, BindingResult result) {

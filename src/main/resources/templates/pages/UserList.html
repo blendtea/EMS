@@ -152,7 +152,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script>
-  <script type="text/javascript" th:src="@{/js/core/script.js?v=2.0.1}"></script>
+  <script type="text/javascript" th:src="@{/js/core/main.js?v=2.0.1}"></script>
   <!-- datatable -->
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
@@ -181,7 +181,7 @@
                     { data: "userName",
                     	render:function(data,type,row){
                     		// userNameをリンクにします
-                    		return `<a href="/pages/profile/?id=${data}">${data}</a>`;
+                    		return `<a href="/pages/profile/id=${data}">${data}</a>`;
                     	}},
                     { data: "lastName" },
                     { data: "firstName",
