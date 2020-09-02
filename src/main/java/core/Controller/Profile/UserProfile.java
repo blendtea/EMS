@@ -15,11 +15,13 @@ public class UserProfile {
 	@Autowired
     private ProfileService profileService;
 	@GetMapping(value="/pages/profile/id={userName}")
-    public ModelAndView View(@ModelAttribute Profile profile, @PathVariable String userName) {
-    	ModelAndView mav = new ModelAndView();
+    public ModelAndView View(@ModelAttribute Profile profile, ModelAndView mav, @PathVariable String userName) {
     	profile = profileService.findUserByUserName(userName);
     	mav.addObject("emsID", userName);
     	mav.addObject("fullName", profile.getLastName() + " " + profile.getFirstName());
+    	mav.addObject("birth", profile.getBirth());
+    	mav.addObject("assigned", profile.getAssigned());
+    	mav.addObject("msg", profile.getMsg());
     	mav.addObject("profile", profile);
     	System.out.println(profile);
     	mav.setViewName("pages/UserProfile");

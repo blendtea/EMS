@@ -43,9 +43,11 @@ public class User {
     private String password;
     @Column(name = "first_name")
     @NotEmpty(message = "*必須項目")
+    @Length(max = 12, message = "*最大12文字まで")
     private String firstName;
     @Column(name = "last_name")
     @NotEmpty(message = "*必須項目")
+    @Length(max = 12, message = "*最大12文字まで")
     private String lastName;
 
     @ManyToMany(cascade = CascadeType.MERGE)

@@ -9,7 +9,7 @@ import core.Model.Profile;
 import core.Repository.UserProfileRepository;
 
 @Service
-@Transactional
+@Transactional(rollbackOn = Exception.class)
 public class ProfileService {
 
 	private UserProfileRepository profileRepository;
@@ -18,7 +18,6 @@ public class ProfileService {
     public ProfileService(UserProfileRepository profileRepository) {
         this.profileRepository = profileRepository;
     }
-    //Custom userService <Profile Model>
     public Profile save(Profile profile) {
     	return profileRepository.save(profile);
     }

@@ -18,8 +18,7 @@ public class UserTable {
     private UserProfileRepository profileRepository;
 
 	@GetMapping(value="/pages/UserList")
-	public ModelAndView UserList() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView UserList(ModelAndView mav) {
 		mav.setViewName("pages/UserList");
 		return mav;
 		}
@@ -31,8 +30,7 @@ public class UserTable {
     }
     //サービスへ登録しているユーザーを一覧表示する
     @GetMapping(value="/pages/Users")
-    public ModelAndView Users() {
-    	ModelAndView mav = new ModelAndView();
+    public ModelAndView Users(ModelAndView mav) {
     	mav.setViewName("pages/Users");
     	return mav;
     }

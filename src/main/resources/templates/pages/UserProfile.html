@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
   <!-- Local Files -->
-  <link rel="stylesheet" th:href="@{/css/styles.css?v=2.0.1}"/>
+  <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 
 <body class="">
@@ -137,7 +137,7 @@
                   </a>
                   <p class="id" th:text="${emsID}"></p>
                 </div>
-                <p class="comment text-center" th:text="${comment}"></p>
+                <p class="comment text-center" th:text="${msg}"></p>
               </div>
               <div class="card-footer">
                 <hr>
@@ -158,62 +158,6 @@
                     <!--  -->
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="card">
-            <!--  -->
-              <div class="card-header">
-                <h4 class="card-title"></h4>
-              </div>
-              <!--  -->
-              <div class="card-body">
-                <ul class="list-unstyled team-members">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-2 col-2">
-                        <div class="avatar">
-                        </div>
-                      </div>
-                      <!--  -->
-                      <div class="col-md-7 col-7">
-                        <br />
-                        <span class="text-muted"><small></small></span>
-                      </div>
-
-                      <!--  -->
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                    <!--  -->
-                      <div class="col-md-2 col-2">
-                        <div class="avatar">
-                        </div>
-                      </div>
-                    <!--  -->
-                      <div class="col-md-7 col-7">
-                        <br />
-                        <span class="text-success"><small></small></span>
-                      </div>
-                    <!--  -->
-                    </div>
-                  </li>
-                  <li>
-                    <div class="row">
-                    <!--  -->
-                      <div class="col-md-2 col-2">
-                        <div class="avatar">
-                        </div>
-                      </div>
-                      <!--  -->
-                      <div class="col-ms-7 col-7">
-                        <br />
-                        <span class="text-danger"><small></small></span>
-                      </div>
-                      <!--  -->
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -315,6 +259,6 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script>
-  <script type="text/javascript" th:src="@{/js/core/main.js?v=2.0.1}"></script>
+  <script type="text/javascript" th:src="@{/js/core/main.js}"></script>
 </body>
 </html>

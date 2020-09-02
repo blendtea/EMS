@@ -1,0 +1,15 @@
+/*バリデーション時のテキスト位置調整*/
+
+.validation-message {
+    font-style: normal;
+    font-size: 12px;
+    color: #FF1C19;
+}
+.validation-sex {
+	margin-left: 20px;
+    font-style: normal;
+}
+.validation-assigned {
+	margin-left: 20px;
+	font-style: normal;
+}

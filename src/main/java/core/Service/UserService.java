@@ -15,7 +15,7 @@ import core.Repository.RoleRepository;
 import core.Repository.UserRepository;
 
 @Service
-@Transactional
+@Transactional(rollbackOn = Exception.class)
 public class UserService {
 
     private UserRepository userRepository;
