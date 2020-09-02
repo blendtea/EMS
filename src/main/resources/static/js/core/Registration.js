@@ -3,6 +3,19 @@ $(document).on('click', '.registration .submission', function () {
 
 		console.log(data);
 
-			$.post('/registration', data, function () {
-			});
+			$.ajax({
+				url : 'test',
+				type : 'POST',
+				data : {data},
+				success : function(responce){
+					console.log(true);
+
+				},
+				error : function(){
+					console.log("failed connection");
+				}
+			})
+
+/*			$.post('/registration', data, function () {
+			});*/
 		});
