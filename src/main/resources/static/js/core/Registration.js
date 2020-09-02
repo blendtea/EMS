@@ -1,4 +1,5 @@
-$(document).on('click', '.registration .submission', function () {
+
+$(document).on('click', '.submit', function () {
 	var data = $(this).closest('form').serialize();
 
 		console.log(data);
