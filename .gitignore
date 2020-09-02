@@ -5,7 +5,6 @@ bin/
 target/
 .classpath
 .project
-src/test/
 .DS_Store
 application.properties
 README.md
