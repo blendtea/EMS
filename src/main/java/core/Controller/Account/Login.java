@@ -15,10 +15,4 @@ public class Login {
         mav.setViewName("startup");
         return mav;
     }
-    @GetMapping(value="/pages/test")
-    public ModelAndView test(User user,ModelAndView mav) {
-    	mav.addObject("user", user);
-    	mav.setViewName("test");
-    	return mav;
-    }
 }

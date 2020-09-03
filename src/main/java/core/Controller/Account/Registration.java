@@ -22,7 +22,7 @@ public class Registration {
     @GetMapping(value="/registration")
     public ModelAndView registration(@ModelAttribute User user, ModelAndView mav){
         mav.addObject("user", user);
-        mav.setViewName("startup");
+        mav.setViewName("registration");
         return mav;
     }
     //登録情報を送信する
@@ -35,9 +35,9 @@ public class Registration {
                             "*登録済み");
         }
         if (result.hasErrors()) {
-            mav.setViewName("startup");
-            mav.addObject("failedMessage","登録に失敗しました");
-            mav.addObject("tryMessage","再試行してください");
+            mav.setViewName("registration");
+//            mav.addObject("failedMessage","登録に失敗しました");
+//            mav.addObject("tryMessage","再試行してください");
         } else {
             userService.saveUser(user);
     //アカウント登録成功時に通知する
