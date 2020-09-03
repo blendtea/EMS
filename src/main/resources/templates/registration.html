@@ -13,22 +13,24 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- CSS Files --><!-- Local Files -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-  <link rel="stylesheet" th:href="@{/css/startup.css}"/>
   <link rel="stylesheet" th:href="@{/css/login.css}"/>
   <link rel="stylesheet" th:href="@{/css/registration.css}"/>
+  <link rel="stylesheet" th:href="@{/css/validation/registration.css}"/>
 </head>
 
 <body>
 <div class="container">
   <div class="card"></div>
-  <div class="card">
+  <div class="card"></div>
+  <!-- Registration Page -->
+  <div class="card alt">
+    <div class="view"></div>
     <h1 class="title">アカウント登録
-    <div class="close"></div>
     </h1>
     <form autocomplete="off" action="#" th:action="@{/registration}"
                   th:object="${user}" method="post" role="form">
+
       <div class="input-container">
         <input type="text" th:field="*{lastName}"/>
         <label for="#{label}">姓</label>
@@ -55,6 +57,7 @@
       </div>
       <div class="input-container">
         <input type="password" th:field="*{password}"/>
+<script type="text/javascript" th:src="@{/js/core/SmartCard.js}"></script>
         <label for="#{label}">パスワード</label>
         <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-PSK"></label>
       <div class="bar"></div>
@@ -67,4 +70,5 @@
     </div>
   </div>
 </body>
+<script type="text/javascript" th:src="@{/js/core/field.js}"></script>
 </html>

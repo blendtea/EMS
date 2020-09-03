@@ -35,7 +35,6 @@ public class User {
     private Long id;
     @Column(name = "user_name")
     @Length(min = 3, max =3, message = "*必須項目")
-    @NotEmpty(message = "")
     private String userName;
     @Column(name = "password")
     @Length(min = 5, message = "*最低5文字以上")

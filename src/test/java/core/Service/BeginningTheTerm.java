@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class BeginningTheTerm {
 	@Autowired
 	private MockMvc mockMvc;
 	@Test
+	@DisplayName("ログイン画面へ到達できるか")
 	/*Specify view in get request and judge success or failure of http status
 	 Display request/response with andDo(print())
 	 ==============================================
@@ -30,6 +32,8 @@ public class BeginningTheTerm {
 	(for Result)Expect (andExpect)
 	is HTTP status is 200 (status().isOK())
 	 */
+	
+	
 		void HTTPisResponding() throws Exception {
     this.mockMvc.perform(get("/login")).andDo(print())
         .andExpect(status().isOk());
