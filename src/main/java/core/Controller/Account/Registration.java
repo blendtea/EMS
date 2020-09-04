@@ -18,33 +18,51 @@ public class Registration {
 	@Autowired
     private UserService userService;
 
-	//登録画面へ遷移する
     @GetMapping(value="/registration")
-    public ModelAndView registration(@ModelAttribute User user, ModelAndView mav){
-        mav.addObject("user", user);
+    public ModelAndView registration(ModelAndView mav){
         mav.setViewName("registration");
         return mav;
     }
-    //登録情報を送信する
+    //アカウント登録マッピング
     @PostMapping(value = "/registration")
     public ModelAndView createNewUser(@Validated @ModelAttribute User user, BindingResult result, ModelAndView mav) {
-        User userExists = userService.findUserByUserName(user.getUserName());
+
+    	/* 以下モデルクラス、バリデーションのインポート */
+    	/* 登録フォーム送信時にモデルクラス内に設定されているバリデーションを通過しBindingResultクラスから結果を格納する
+    	 * 分岐式を通して結果に応じた値をビュー側に返却する */
+
+    	User userExists = userService.findUserByUserName(user.getUserName());
+    	/* UserRepository内に["Model/User"]から[String:userName]を取り出すリポジトリを登録済み */
+    	/* 全てのリポジトリは基本、各種サービスクラスにインジェクション済み */
+    	/* userExistsは["Model/User"]から[String:userName]を取り出すためにリポジトリを呼び出しフォームから取得した
+    	 * 社員番号の値を取得するためのもの */
+
         if (userExists != null) {
             result
                     .rejectValue("userName", "error.user",
                             "*登録済み");
         }
+
+        /* 登録フォームから送信された社員番号が既に登録されている場合 */
+        /* 結果をBindingResultクラスに格納し、該当のフォーム["社員番号"]へバリデーション結果
+                              "*登録済み"を表示する */
+
         if (result.hasErrors()) {
             mav.setViewName("registration");
-//            mav.addObject("failedMessage","登録に失敗しました");
-//            mav.addObject("tryMessage","再試行してください");
+        /* 登録フォームから送信されたいずれかの値にバリデーションが通過できなかった場合 */
+        /* 全ての結果をBindingResultクラスからビュー側へ返却する */
+        /* コントローラ側はURLパラメータに["registration"]を付与するだけ */
+
         } else {
             userService.saveUser(user);
-    //アカウント登録成功時に通知する
             mav.addObject("successMessage", "登録が完了しました");
-            mav.addObject("user", new User());
+//          mav.addObject("user", new User()); /* 単体テスト結果では必要ないかもしれない。*/
             mav.setViewName("startup");
         }
+        /* 処理が正常に終了した場合 */
+        /* ["Service/UserService"]からsaveUserを実行する */
+        /* 登録処理が正常に終了したことを通知する為に["successMessage"]オブジェクトをビュー側へ返却する */
+        /* 登録処理後は["startup"]に遷移する */
         return mav;
     }
 }
