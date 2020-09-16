@@ -12,16 +12,16 @@ import core.Repository.UserProfileRepository;
 @Transactional(rollbackOn = Exception.class)
 public class ProfileService {
 
+	@Autowired
 	private UserProfileRepository profileRepository;
 
-    @Autowired
     public ProfileService(UserProfileRepository profileRepository) {
         this.profileRepository = profileRepository;
     }
     public Profile save(Profile profile) {
     	return profileRepository.save(profile);
     }
-    public Profile findUserByUserName(String userName) {
+  public Profile findUserByUserName(String userName) {
     	return profileRepository.findByUserName(userName);
     }
 }

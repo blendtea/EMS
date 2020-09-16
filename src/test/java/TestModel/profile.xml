@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+
+<accept_order
+			  profile_id="1"
+			  user_name="000"
+              first_name="test"
+              last_name="test"
+              sex="男性"
+              assigned="test"
+              birth="1111/11/11"
+              school="test"
+              hobby="test"
+              town="test"
+              msg="test" />
+</dataset>

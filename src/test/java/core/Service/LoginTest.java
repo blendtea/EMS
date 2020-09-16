@@ -1,26 +1,32 @@
 package core.Service;
 
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import org.junit.Before;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.github.springtestdbunit.annotation.DatabaseSetup;
-@AutoConfigureMockMvc
-@RunWith(SpringRunner.class)
-@SpringBootTest
-class LoginTest {
+import core.Model.User;
 
+@AutoConfigureMockMvc
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class LoginTest {
+
+
+	@SuppressWarnings("unused")
 	@Autowired
 	private UserService userService;
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private MyUserDetailsService service;
 
@@ -28,18 +34,42 @@ class LoginTest {
 	private MockMvc mockMvc;
 
 	@Before
-	void TestService(String userName) {
-
+	void before(){
+		User user = new User();
 	}
+
+
 
 	@Test
-	@DatabaseSetup(value = "")
-	void user_nametest() throws Exception {
+	@DisplayName("ログインテスト")
+	public void Logintest() throws Exception {
 		this.mockMvc.perform(
-				formLogin("/login")
-				.user("000")
-				.password("shun0425"))
-		.andExpect(status().is3xxRedirection())
-		.andExpect(redirectedUrl("/pages/Dashboard"));
+				get("/")
+				.flashAttr("user_name", "")
+				.flashAttr("password", ""))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(view().name("startup"));
 	}
+	@Test
+	@DisplayName("ログインテスト")
+	public void Logintest2() throws Exception {
+		this.mockMvc.perform(
+				get("/")
+				.flashAttr("user_name", "000")
+				.flashAttr("password", "00000"))
+		.andDo(print())
+		.andExpect(status().isOk())
+		.andExpect(view().name("startup"));
+	}
+
+//	@Test
+//	@DisplayName("ログインテスト")
+//	public void Logintest() throws Exception {
+//		this.mockMvc.perform(
+//				formLogin("/"))
+//		.andDo(print())
+//		.andExpect(status().isOk())
+//		.andExpect(view().name("startup"));
+//	}
 }
