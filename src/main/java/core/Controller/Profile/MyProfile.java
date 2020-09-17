@@ -72,12 +72,13 @@ public class MyProfile {
 	public ModelAndView findByUserName(@Validated Profile profile, BindingResult result, User finder, Authentication auth, ModelAndView mav) {
 		final Map<String, String> SELECT_SEX =
 	            Collections.unmodifiableMap(new LinkedHashMap<String, String>() {
-	                {
-	                	put("選択してください", "" );
-	                    put("男性", "男性");
-	                    put("女性", "女性");
-	                }
-	            });
+                 {
+                        put("選択してください", "" );
+                        put("男性", "男性");
+                        put("女性", "女性");
+                    }
+                 });
+
 		auth = SecurityContextHolder.getContext().getAuthentication();
 		finder = userService.findUserByUserName(auth.getName());
 		if (finder == null) {

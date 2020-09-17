@@ -173,8 +173,8 @@
                   <!--  -->
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category"></p>
-                      <p class="card-title"><p>
+                      <p class ="card-category" th:text="${BINGO}"></p>
+                      <p class="VersionBINGO" th:text="${VersionBINGO}"></p>
                     </div>
                   </div>
                   <!--  -->
@@ -185,6 +185,7 @@
                 <hr>
                 <div class="stats">
                   <i class="fa fa-calendar-o"></i>
+                  <a th:href="@{/pages/BINGO}">Play BINGO !</a>
                 </div>
               </div>
               <!--  -->

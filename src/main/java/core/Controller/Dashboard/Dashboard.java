@@ -36,9 +36,17 @@ public class Dashboard {
         //Model String()
         mav.addObject("Welcome","ようこそ " + user.getLastName() + " " + user.getFirstName() + "さん");
         mav.addObject("Version","1.2.6");
+        mav.addObject("BINGO", "BINGO");
+        mav.addObject("VersionBINGO", "1.0(未実装)");
         mav.addObject("Title","Welcome to EMS PROJECT");
         mav.addObject("updated","last updated : 26 Aug");
         mav.setViewName("pages/Dashboard");
         return mav;
+    }
+
+    @GetMapping(value = "/pages/BINGO")
+    public ModelAndView BINGO(ModelAndView mav) {
+    	mav.setViewName("/pages/board");
+    	return mav;
     }
 }

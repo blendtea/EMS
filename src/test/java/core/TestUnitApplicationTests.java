@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class TestUnitApplicationTests {
 
+	@DisplayName("未設定")
 	@Test
 	public void contextLoads() {
 	}
