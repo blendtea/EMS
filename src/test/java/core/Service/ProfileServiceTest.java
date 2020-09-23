@@ -1,6 +1,7 @@
 package core.Service;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +23,7 @@ public class ProfileServiceTest {
 	User user = new User();
 	@DisplayName("プロフィール登録成功テスト")
 	@Test
-//	@Disabled //comment out this and requirements : user account
+	@Disabled //comment out this and requirements : user account
 	public void ProfileRegistrationSuccessedTest() throws Exception {
 
 		// [fatal] validation error
